@@ -8,22 +8,60 @@
 
 /* Begin PBXBuildFile section */
 		136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE77721013DF7000E1152 /* AppDelegate.swift */; };
-		136AE77A21013DF7000E1152 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE77921013DF7000E1152 /* FirstViewController.swift */; };
 		136AE77C21013DF7000E1152 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE77B21013DF7000E1152 /* SecondViewController.swift */; };
 		136AE77F21013DF7000E1152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE77D21013DF7000E1152 /* Main.storyboard */; };
 		136AE78121013DF8000E1152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78021013DF8000E1152 /* Assets.xcassets */; };
 		136AE78421013DF8000E1152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78221013DF8000E1152 /* LaunchScreen.storyboard */; };
+		136AE78C210140D7000E1152 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE78B210140D7000E1152 /* StartViewController.swift */; };
+		136AE791210141FF000E1152 /* Product Sans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78D210141FD000E1152 /* Product Sans Bold.ttf */; };
+		136AE792210141FF000E1152 /* Product Sans Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78E210141FE000E1152 /* Product Sans Bold Italic.ttf */; };
+		136AE793210141FF000E1152 /* Product Sans Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78F210141FE000E1152 /* Product Sans Italic.ttf */; };
+		136AE794210141FF000E1152 /* Product Sans Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE790210141FF000E1152 /* Product Sans Regular.ttf */; };
+		136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7A9210156A3000E1152 /* UIView+constraints.swift */; };
+		136AE7B1210156A3000E1152 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7AA210156A3000E1152 /* ViewController.swift */; };
+		136AE7B2210156A3000E1152 /* DateFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7AB210156A3000E1152 /* DateFormatters.swift */; };
+		136AE7B3210156A3000E1152 /* UIColor+interpolation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7AC210156A3000E1152 /* UIColor+interpolation.swift */; };
+		136AE7B4210156A3000E1152 /* CalendarPagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7AD210156A3000E1152 /* CalendarPagingCell.swift */; };
+		136AE7B6210156A3000E1152 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7AF210156A3000E1152 /* CalendarViewController.swift */; };
+		136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7C5210193BC000E1152 /* DemoCell.swift */; };
+		136AE7C8210193FC000E1152 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136AE7C7210193FC000E1152 /* taskCell.xib */; };
+		859F2A7E823EEE093CA8B27B /* Pods_Study_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		136AE77421013DF7000E1152 /* Study Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AE77721013DF7000E1152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		136AE77921013DF7000E1152 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		136AE77B21013DF7000E1152 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		136AE77E21013DF7000E1152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		136AE78021013DF8000E1152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		136AE78321013DF8000E1152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		136AE78521013DF8000E1152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		136AE78B210140D7000E1152 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		136AE78D210141FD000E1152 /* Product Sans Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Bold.ttf"; sourceTree = "<group>"; };
+		136AE78E210141FE000E1152 /* Product Sans Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Bold Italic.ttf"; sourceTree = "<group>"; };
+		136AE78F210141FE000E1152 /* Product Sans Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Italic.ttf"; sourceTree = "<group>"; };
+		136AE790210141FF000E1152 /* Product Sans Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Regular.ttf"; sourceTree = "<group>"; };
+		136AE79621014221000E1152 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		136AE79721014221000E1152 /* Lato-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BoldItalic.ttf"; sourceTree = "<group>"; };
+		136AE79821014222000E1152 /* Lato-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-LightItalic.ttf"; sourceTree = "<group>"; };
+		136AE79921014222000E1152 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
+		136AE79A21014222000E1152 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		136AE79B21014222000E1152 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
+		136AE79C21014222000E1152 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		136AE79D21014222000E1152 /* Lato-HairlineItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-HairlineItalic.ttf"; sourceTree = "<group>"; };
+		136AE79E21014222000E1152 /* Lato-Hairline.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Hairline.ttf"; sourceTree = "<group>"; };
+		136AE79F21014222000E1152 /* Lato-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Italic.ttf"; sourceTree = "<group>"; };
+		136AE7A9210156A3000E1152 /* UIView+constraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+constraints.swift"; sourceTree = "<group>"; };
+		136AE7AA210156A3000E1152 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		136AE7AB210156A3000E1152 /* DateFormatters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateFormatters.swift; sourceTree = "<group>"; };
+		136AE7AC210156A3000E1152 /* UIColor+interpolation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+interpolation.swift"; sourceTree = "<group>"; };
+		136AE7AD210156A3000E1152 /* CalendarPagingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarPagingCell.swift; sourceTree = "<group>"; };
+		136AE7AF210156A3000E1152 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
+		136AE7C5210193BC000E1152 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		136AE7C7210193FC000E1152 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
+		7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.debug.xcconfig"; sourceTree = "<group>"; };
+		F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				859F2A7E823EEE093CA8B27B /* Pods_Study_Planner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +81,8 @@
 			children = (
 				136AE77621013DF7000E1152 /* Study Planner */,
 				136AE77521013DF7000E1152 /* Products */,
+				C1825B12C9EA585616071367 /* Pods */,
+				DC37E4DDE8EF67D917A2381F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +97,78 @@
 		136AE77621013DF7000E1152 /* Study Planner */ = {
 			isa = PBXGroup;
 			children = (
-				136AE77721013DF7000E1152 /* AppDelegate.swift */,
-				136AE77921013DF7000E1152 /* FirstViewController.swift */,
-				136AE77B21013DF7000E1152 /* SecondViewController.swift */,
-				136AE77D21013DF7000E1152 /* Main.storyboard */,
+				136AE7BE2101840F000E1152 /* cell */,
+				136AE7A821015693000E1152 /* demo */,
 				136AE78021013DF8000E1152 /* Assets.xcassets */,
+				136AE77D21013DF7000E1152 /* Main.storyboard */,
 				136AE78221013DF8000E1152 /* LaunchScreen.storyboard */,
 				136AE78521013DF8000E1152 /* Info.plist */,
+				136AE7952101420A000E1152 /* Font */,
 			);
 			path = "Study Planner";
+			sourceTree = "<group>";
+		};
+		136AE7952101420A000E1152 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				136AE78D210141FD000E1152 /* Product Sans Bold.ttf */,
+				136AE78F210141FE000E1152 /* Product Sans Italic.ttf */,
+				136AE79921014222000E1152 /* Lato-Black.ttf */,
+				136AE79B21014222000E1152 /* Lato-BlackItalic.ttf */,
+				136AE79A21014222000E1152 /* Lato-Bold.ttf */,
+				136AE79721014221000E1152 /* Lato-BoldItalic.ttf */,
+				136AE79E21014222000E1152 /* Lato-Hairline.ttf */,
+				136AE79D21014222000E1152 /* Lato-HairlineItalic.ttf */,
+				136AE79F21014222000E1152 /* Lato-Italic.ttf */,
+				136AE79C21014222000E1152 /* Lato-Light.ttf */,
+				136AE79821014222000E1152 /* Lato-LightItalic.ttf */,
+				136AE79621014221000E1152 /* Lato-Regular.ttf */,
+				136AE790210141FF000E1152 /* Product Sans Regular.ttf */,
+				136AE78E210141FE000E1152 /* Product Sans Bold Italic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		136AE7A821015693000E1152 /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				136AE77B21013DF7000E1152 /* SecondViewController.swift */,
+				136AE77721013DF7000E1152 /* AppDelegate.swift */,
+				136AE7AD210156A3000E1152 /* CalendarPagingCell.swift */,
+				136AE7AF210156A3000E1152 /* CalendarViewController.swift */,
+				136AE7AB210156A3000E1152 /* DateFormatters.swift */,
+				136AE7AC210156A3000E1152 /* UIColor+interpolation.swift */,
+				136AE78B210140D7000E1152 /* StartViewController.swift */,
+				136AE7A9210156A3000E1152 /* UIView+constraints.swift */,
+				136AE7AA210156A3000E1152 /* ViewController.swift */,
+			);
+			name = demo;
+			sourceTree = "<group>";
+		};
+		136AE7BE2101840F000E1152 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				136AE7C5210193BC000E1152 /* DemoCell.swift */,
+				136AE7C7210193FC000E1152 /* taskCell.xib */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
+		C1825B12C9EA585616071367 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */,
+				F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		DC37E4DDE8EF67D917A2381F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +178,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 136AE78821013DF8000E1152 /* Build configuration list for PBXNativeTarget "Study Planner" */;
 			buildPhases = (
+				1BAA5BAD11A1C92C9A8E99E2 /* [CP] Check Pods Manifest.lock */,
 				136AE77021013DF7000E1152 /* Sources */,
 				136AE77121013DF7000E1152 /* Frameworks */,
 				136AE77221013DF7000E1152 /* Resources */,
+				9C15729B897634C24601C423 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -125,22 +231,75 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136AE791210141FF000E1152 /* Product Sans Bold.ttf in Resources */,
+				136AE794210141FF000E1152 /* Product Sans Regular.ttf in Resources */,
 				136AE78421013DF8000E1152 /* LaunchScreen.storyboard in Resources */,
+				136AE792210141FF000E1152 /* Product Sans Bold Italic.ttf in Resources */,
 				136AE78121013DF8000E1152 /* Assets.xcassets in Resources */,
+				136AE7C8210193FC000E1152 /* taskCell.xib in Resources */,
 				136AE77F21013DF7000E1152 /* Main.storyboard in Resources */,
+				136AE793210141FF000E1152 /* Product Sans Italic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1BAA5BAD11A1C92C9A8E99E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Study Planner-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9C15729B897634C24601C423 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		136AE77021013DF7000E1152 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136AE7B1210156A3000E1152 /* ViewController.swift in Sources */,
 				136AE77C21013DF7000E1152 /* SecondViewController.swift in Sources */,
+				136AE7B4210156A3000E1152 /* CalendarPagingCell.swift in Sources */,
+				136AE7B6210156A3000E1152 /* CalendarViewController.swift in Sources */,
+				136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */,
+				136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */,
+				136AE78C210140D7000E1152 /* StartViewController.swift in Sources */,
 				136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */,
-				136AE77A21013DF7000E1152 /* FirstViewController.swift in Sources */,
+				136AE7B3210156A3000E1152 /* UIColor+interpolation.swift in Sources */,
+				136AE7B2210156A3000E1152 /* DateFormatters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +441,7 @@
 		};
 		136AE78921013DF8000E1152 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -299,6 +459,7 @@
 		};
 		136AE78A21013DF8000E1152 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
