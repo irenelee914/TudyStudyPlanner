@@ -25,6 +25,10 @@
 		136AE7B6210156A3000E1152 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7AF210156A3000E1152 /* CalendarViewController.swift */; };
 		136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7C5210193BC000E1152 /* DemoCell.swift */; };
 		136AE7C8210193FC000E1152 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136AE7C7210193FC000E1152 /* taskCell.xib */; };
+		136AE7CB21024A7B000E1152 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CA21024A7B000E1152 /* Category.swift */; };
+		136AE7CD21024A8C000E1152 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CC21024A8C000E1152 /* Todo.swift */; };
+		136AE7CF2102502C000E1152 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CE2102502C000E1152 /* Assignment.swift */; };
+		136AE7D12102503F000E1152 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7D02102503F000E1152 /* Event.swift */; };
 		859F2A7E823EEE093CA8B27B /* Pods_Study_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */; };
 /* End PBXBuildFile section */
 
@@ -59,6 +63,10 @@
 		136AE7AF210156A3000E1152 /* CalendarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		136AE7C5210193BC000E1152 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		136AE7C7210193FC000E1152 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
+		136AE7CA21024A7B000E1152 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		136AE7CC21024A8C000E1152 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		136AE7CE2102502C000E1152 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		136AE7D02102503F000E1152 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.release.xcconfig"; sourceTree = "<group>"; };
@@ -98,8 +106,14 @@
 			isa = PBXGroup;
 			children = (
 				136AE7BE2101840F000E1152 /* cell */,
-				136AE7A821015693000E1152 /* demo */,
+				136AE7A821015693000E1152 /* Etc */,
 				136AE78021013DF8000E1152 /* Assets.xcassets */,
+				136AE77B21013DF7000E1152 /* SecondViewController.swift */,
+				136AE7C921024A51000E1152 /* Data  */,
+				136AE77721013DF7000E1152 /* AppDelegate.swift */,
+				136AE7AF210156A3000E1152 /* CalendarViewController.swift */,
+				136AE78B210140D7000E1152 /* StartViewController.swift */,
+				136AE7AA210156A3000E1152 /* ViewController.swift */,
 				136AE77D21013DF7000E1152 /* Main.storyboard */,
 				136AE78221013DF8000E1152 /* LaunchScreen.storyboard */,
 				136AE78521013DF8000E1152 /* Info.plist */,
@@ -129,20 +143,15 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		136AE7A821015693000E1152 /* demo */ = {
+		136AE7A821015693000E1152 /* Etc */ = {
 			isa = PBXGroup;
 			children = (
-				136AE77B21013DF7000E1152 /* SecondViewController.swift */,
-				136AE77721013DF7000E1152 /* AppDelegate.swift */,
 				136AE7AD210156A3000E1152 /* CalendarPagingCell.swift */,
-				136AE7AF210156A3000E1152 /* CalendarViewController.swift */,
 				136AE7AB210156A3000E1152 /* DateFormatters.swift */,
 				136AE7AC210156A3000E1152 /* UIColor+interpolation.swift */,
-				136AE78B210140D7000E1152 /* StartViewController.swift */,
 				136AE7A9210156A3000E1152 /* UIView+constraints.swift */,
-				136AE7AA210156A3000E1152 /* ViewController.swift */,
 			);
-			name = demo;
+			name = Etc;
 			sourceTree = "<group>";
 		};
 		136AE7BE2101840F000E1152 /* cell */ = {
@@ -152,6 +161,17 @@
 				136AE7C7210193FC000E1152 /* taskCell.xib */,
 			);
 			path = cell;
+			sourceTree = "<group>";
+		};
+		136AE7C921024A51000E1152 /* Data  */ = {
+			isa = PBXGroup;
+			children = (
+				136AE7CA21024A7B000E1152 /* Category.swift */,
+				136AE7CC21024A8C000E1152 /* Todo.swift */,
+				136AE7CE2102502C000E1152 /* Assignment.swift */,
+				136AE7D02102503F000E1152 /* Event.swift */,
+			);
+			path = "Data ";
 			sourceTree = "<group>";
 		};
 		C1825B12C9EA585616071367 /* Pods */ = {
@@ -272,11 +292,21 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
 				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
+				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -297,9 +327,13 @@
 				136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */,
 				136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */,
 				136AE78C210140D7000E1152 /* StartViewController.swift in Sources */,
+				136AE7CD21024A8C000E1152 /* Todo.swift in Sources */,
 				136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */,
 				136AE7B3210156A3000E1152 /* UIColor+interpolation.swift in Sources */,
+				136AE7CF2102502C000E1152 /* Assignment.swift in Sources */,
 				136AE7B2210156A3000E1152 /* DateFormatters.swift in Sources */,
+				136AE7D12102503F000E1152 /* Event.swift in Sources */,
+				136AE7CB21024A7B000E1152 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

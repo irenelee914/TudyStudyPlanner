@@ -1,5 +1,7 @@
 import UIKit
 import Parchment
+import RealmSwift
+import SwiftEntryKit
 
 // First thing we need to do is create our own PagingItem that will
 // hold our date. We need to make sure it conforms to Hashable and
@@ -31,6 +33,13 @@ struct CalendarItem: PagingItem, Hashable, Comparable {
 }
 
 class ViewController: UIViewController  {
+    /// --- REALM --- ///
+    let realm = try! Realm()
+    var categories: Results<Category>?
+    
+    /// --- Sending Data from 1st VC to 2nd VC --- ///
+    
+    
     
 
   override func viewDidLoad() {
@@ -72,6 +81,51 @@ class ViewController: UIViewController  {
         pagingViewController.view.topAnchor.constraint(equalTo: view.topAnchor)
         ])
   }
+    
+    
+    @IBAction func addNewCategory(_ sender: UIBarButtonItem) {
+        var textField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Category", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add", style: .default) { (action) in
+            
+            let newCategory = Category()
+            newCategory.nameOfCategory = textField.text!
+            //newCategory.colour = UIColor.randomFlat.hexValue()
+            
+            self.save(category: newCategory)
+            
+            
+        }
+        
+        alert.addAction(action)
+        
+        alert.addTextField { (field) in
+            textField = field
+            textField.placeholder = "Add a new category"
+        }
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+    /// --- SAVE TO REALM --- ///
+    func save(category: Category) {
+        do {
+            try realm.write {
+                realm.add(category)
+            }
+        } catch {
+            print("Error saving category \(error)")
+        }
+        
+       // tableView.reloadData()
+        
+    }
+    
+
+    
   
 }
 
@@ -84,7 +138,7 @@ class ViewController: UIViewController  {
 
 extension ViewController: PagingViewControllerInfiniteDataSource {
   
-    //THIS GENERATES THE VIEWCONTROLLER PER EACH DATE
+    /// --- THIS GENERATES THE VIEWCONTROLLER PER EACH DATE --- ///
   func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, viewControllerForPagingItem pagingItem: T) -> UIViewController {
     let calendarItem = pagingItem as! CalendarItem
    // return CalendarViewController(date: calendarItem.date)

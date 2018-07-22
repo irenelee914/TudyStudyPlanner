@@ -1,116 +1,98 @@
-//import UIKit
-//import FoldingCell
-//
-//class CalendarViewController: UIViewController,  UITableViewDelegate, UITableViewDataSource {
-//
-//
-//    private let myArray: NSArray = ["First","Second","Third"]
-//    private var myTableView: UITableView!
-//
-//
-//
-//  init(date: Date) {
-//    super.init(nibName: nil, bundle: nil)
-//
-//
-//    let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-//    let displayWidth: CGFloat = self.view.frame.width
-//    let displayHeight: CGFloat = self.view.frame.height
-//
-//    myTableView = UITableView(frame: CGRect(x: 0, y: 0, width: displayWidth, height: displayHeight - barHeight))
-//    myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HELLO")
-//    //myTableView.register(UINib(nibname:"DEMOTableViewCell",bundle:nil),forcellResuseIdentifier: "HELLO")
-//    //myTableView.register(DEMOTableViewCell.self, forCellReuseIdentifier: "HELLO")
-//    //myTableView.register(UINib(nibName: "DEMOCustomCell", bundle: nil) , forCellReuseIdentifier: "DEMOCustomCell")
-////    myTableView.register(UINib(nibName: "MessageCell", bundle: nil) , forCellReuseIdentifier: "customMessageCell")
-//    myTableView.dataSource = self
-//    myTableView.delegate = self
-//    self.view.addSubview(myTableView)
-//
-//
-//
-//
-//
-////
-////    let label = UILabel(frame: .zero)
-////    label.font = UIFont.systemFont(ofSize: 50, weight: UIFont.Weight.thin)
-////    label.textColor = UIColor(red: 95/255, green: 102/255, blue: 108/255, alpha: 1)
-////
-////    //this displays the text for each VC
-////    label.text = DateFormatters.shortDateFormatter.string(from: date)
-////    label.sizeToFit()
-////
-////    view.addSubview(label)
-////    view.constrainCentered(label)
-////    view.backgroundColor = .white
-//  }
-//
-////    override func viewDidLoad() {
-////        super.viewDidLoad()
-////
-////        let barHeight: CGFloat = UIApplication.shared.statusBarFrame.size.height
-////        let displayWidth: CGFloat = self.view.frame.width
-////        let displayHeight: CGFloat = self.view.frame.height
-////
-////        myTableView = UITableView(frame: CGRect(x: 0, y: barHeight, width: displayWidth, height: displayHeight - barHeight))
-////        myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "MyCell")
-////        myTableView.dataSource = self
-////        myTableView.delegate = self
-////        self.view.addSubview(myTableView)
-////    }
-//
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print("Num: \(indexPath.row)")
-//        print("Value: \(myArray[indexPath.row])")
-//    }
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return myArray.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "HELLO", for: indexPath as IndexPath) as! UITableViewCell
-//
-////        let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! DemoCell
-//        cell.textLabel!.text = "\(myArray[indexPath.row])"
-//        return cell
-//    }
-//
-//
-//
-//  required init?(coder: NSCoder) {
-//    fatalError("init(coder:) has not been implemented")
-//  }
-//
-//}
-
-
-
 import UIKit
 import FoldingCell
+import RealmSwift
 
-class CalendarViewController: UITableViewController {
+class CalendarViewController: UITableViewController, CategoryCellDelegate {
+    func getIndex() -> IndexPath {
+        print("im in indexPathAYE -> CalendarVC")
+        return indexPathAYE
+        
+    }
     
-//    init(date: Date) {
-//        super.init(nibName: nil, bundle: nil)
-//        
-//    }
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-//
+   
+    var categoryArray : [Category] = [Category]()
+    var categories: Results<Category>?
+    var todoTasks: Results<Todo>?
+    let realm = try! Realm()
+    var indexPathAYE : IndexPath = []
+    
+
+    
+
+    func showAlert()->Category {
+        print("in showalert1")
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add task", style: .default) { (action) in
+            
+            
+            if let currentCategory = self.categories?[self.indexPathAYE.row]{
+                
+               
+                
+                do {
+                    try self.realm.write {
+                        let newItem = Todo()
+                        newItem.todoName = textField.text!
+                        newItem.dateCreated = Date()
+                        currentCategory.theTasks.append(newItem)
+                    }
+                } catch {
+                    print("Error saving new items, \(error)")
+                }
+            }
+            self.tableView.reloadData()
+        }
+            alert.addAction(action)
+            
+            alert.addTextField { (field) in
+                textField = field
+                textField.placeholder = "Add a new category"
+            }
+            self.present(alert, animated: true, completion: nil)
+            print("in showalert33")
+        
+        
+        return (self.categories?[self.indexPathAYE.row])!
+    }
+    
+ 
     
     enum Const {
-        static let closeCellHeight: CGFloat = 179
+        static let closeCellHeight: CGFloat = 149
         static let openCellHeight: CGFloat = 488
         static let rowsCount = 10
     }
     
     var cellHeights: [CGFloat] = []
     
+    
+    
+    /// --- REALM Notification. Update Tableview once new category is added --- ///
+    var notificationToken : NotificationToken?
+    deinit{
+        notificationToken?.invalidate()
+    }
+    
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //let realm = Realm()
+        notificationToken = realm.observe { [unowned self] note, realm in
+            self.tableView.reloadData()
+        }
+        
         setup()
+        tableView.separatorStyle = .none
+        tableView.reloadData()
+        loadCategories()
+        
+        
+        
     }
     
     private func setup() {
@@ -118,7 +100,7 @@ class CalendarViewController: UITableViewController {
         tableView.estimatedRowHeight = Const.closeCellHeight
         tableView.rowHeight = UITableViewAutomaticDimension
         
-          tableView.register(UINib(nibName: "taskCell", bundle: nil) , forCellReuseIdentifier: "customTaskCell")
+        tableView.register(UINib(nibName: "taskCell", bundle: nil) , forCellReuseIdentifier: "customTaskCell")
         
         tableView.backgroundColor = UIColor(patternImage: #imageLiteral(resourceName: "background"))
         if #available(iOS 10.0, *) {
@@ -126,6 +108,29 @@ class CalendarViewController: UITableViewController {
             tableView.refreshControl?.addTarget(self, action: #selector(refreshHandler), for: .valueChanged)
         }
     }
+    
+    /// --- LOAD FROM REALM --- ///
+    func loadCategories() {
+        categories  = realm.objects(Category.self)
+        tableView.reloadData()
+    }
+    
+    /// --- SAVE FOR REALM --- ///
+    func save(Task: Todo) {
+        do {
+            try realm.write {
+                realm.add(Task)
+            }
+        } catch {
+            print("Error saving category \(error)")
+        }
+        
+        // tableView.reloadData()
+        
+    }
+    
+    
+    
     
     @objc func refreshHandler() {
         let deadlineTime = DispatchTime.now() + .seconds(1)
@@ -136,20 +141,20 @@ class CalendarViewController: UITableViewController {
             self?.tableView.reloadData()
         })
     }
-
+    
 }
 
 extension CalendarViewController {
     
     override func tableView(_: UITableView, numberOfRowsInSection _: Int) -> Int {
-        return 10
+        return categories?.count ?? 1
     }
     
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         guard case let cell as DemoCell = cell else {
             return
         }
-        
+       // cell.delegate = self
         cell.backgroundColor = .clear
         
         if cellHeights[indexPath.row] == Const.closeCellHeight {
@@ -158,12 +163,29 @@ extension CalendarViewController {
             cell.unfold(true, animated: false, completion: nil)
         }
         
-        cell.number = indexPath.row
+        /////CELL TEXT
+        /// --- DATA OF CELL --- ///
+        if let category = categories?[indexPath.row] {
+            cell.closeNumberLabel?.text = category.nameOfCategory
+            cell.openNumberLabel?.text = category.nameOfCategory
+            //cell.backgroundColor = categoryColour
+            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+            
+        }
+        //cell.closeNumberLabel =
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "customTaskCell", for: indexPath) as! FoldingCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "customTaskCell", for: indexPath) as! DemoCell
+       // cell.delegate = self
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
+        
+        /// --- DATA OF CELL --- ///
+        // if let category = categories?[indexPath.row] {
+        // cell.textLabel?.text = category.nameOfCategory
+        // }
+        
+        
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
         return cell
@@ -173,9 +195,20 @@ extension CalendarViewController {
         return cellHeights[indexPath.row]
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let cell = tableView.cellForRow(at: indexPath) as! FoldingCell
+        let cell = tableView.cellForRow(at: indexPath) as! DemoCell
+        indexPathAYE = indexPath
+        cell.delegate = self
+        
         
         if cell.isAnimating() {
             return
@@ -197,6 +230,14 @@ extension CalendarViewController {
             tableView.beginUpdates()
             tableView.endUpdates()
         }, completion: nil)
+        
+        
+        //        let destinationCell = DemoCell()
+        //        if let indexPath = tableView.indexPathForSelectedRow{
+        //            destinationCell.selectedCategory = categories?[indexPath.row]
+        //        }
+        
+        
     }
 }
 
