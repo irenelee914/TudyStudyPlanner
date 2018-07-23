@@ -26,9 +26,9 @@
 		136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7C5210193BC000E1152 /* DemoCell.swift */; };
 		136AE7C8210193FC000E1152 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136AE7C7210193FC000E1152 /* taskCell.xib */; };
 		136AE7CB21024A7B000E1152 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CA21024A7B000E1152 /* Category.swift */; };
-		136AE7CD21024A8C000E1152 /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CC21024A8C000E1152 /* Todo.swift */; };
 		136AE7CF2102502C000E1152 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CE2102502C000E1152 /* Assignment.swift */; };
 		136AE7D12102503F000E1152 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7D02102503F000E1152 /* Event.swift */; };
+		13AB6C65210564A6005946AD /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6C64210564A6005946AD /* Todo.swift */; };
 		859F2A7E823EEE093CA8B27B /* Pods_Study_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,9 +64,9 @@
 		136AE7C5210193BC000E1152 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		136AE7C7210193FC000E1152 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
 		136AE7CA21024A7B000E1152 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		136AE7CC21024A8C000E1152 /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		136AE7CE2102502C000E1152 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		136AE7D02102503F000E1152 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		13AB6C64210564A6005946AD /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
 		7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.debug.xcconfig"; sourceTree = "<group>"; };
 		F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.release.xcconfig"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				136AE7CA21024A7B000E1152 /* Category.swift */,
-				136AE7CC21024A8C000E1152 /* Todo.swift */,
+				13AB6C64210564A6005946AD /* Todo.swift */,
 				136AE7CE2102502C000E1152 /* Assignment.swift */,
 				136AE7D02102503F000E1152 /* Event.swift */,
 			);
@@ -327,7 +327,7 @@
 				136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */,
 				136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */,
 				136AE78C210140D7000E1152 /* StartViewController.swift in Sources */,
-				136AE7CD21024A8C000E1152 /* Todo.swift in Sources */,
+				13AB6C65210564A6005946AD /* Todo.swift in Sources */,
 				136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */,
 				136AE7B3210156A3000E1152 /* UIColor+interpolation.swift in Sources */,
 				136AE7CF2102502C000E1152 /* Assignment.swift in Sources */,
