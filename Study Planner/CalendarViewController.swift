@@ -2,6 +2,8 @@ import UIKit
 import FoldingCell
 import RealmSwift
 
+
+
 class CalendarViewController: UITableViewController, CategoryCellDelegate {
     func getIndex() -> IndexPath {
         print("im in indexPathAYE -> CalendarVC")
@@ -9,17 +11,21 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
         
     }
     
-   
+    
     var categoryArray : [Category] = [Category]()
     var categories: Results<Category>?
     var todoTasks: Results<Todo>?
     let realm = try! Realm()
     var indexPathAYE : IndexPath = []
     
+    
+    func doSomething(){
+        print("something")
+    }
 
     
 
-    func showAlert()->Category {
+    func showAlert() {
         print("in showalert1")
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
@@ -54,7 +60,7 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
             print("in showalert33")
         
         
-        return (self.categories?[self.indexPathAYE.row])!
+        //return (self.categories?[self.indexPathAYE.row])!
     }
     
  
@@ -166,6 +172,7 @@ extension CalendarViewController {
         /////CELL TEXT
         /// --- DATA OF CELL --- ///
         if let category = categories?[indexPath.row] {
+           // cell.categories = category
             cell.closeNumberLabel?.text = category.nameOfCategory
             cell.openNumberLabel?.text = category.nameOfCategory
             //cell.backgroundColor = categoryColour

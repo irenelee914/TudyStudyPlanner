@@ -14,5 +14,5 @@ class Todo: Object {
     @objc dynamic var todoDone: Bool = false
     
     @objc dynamic var dateCreated: Date?
-    var parentCategory = LinkingObjects(fromType: Category.self, property: "theTasks")
+   // var parentCategory = LinkingObjects(fromType: Category.self, property: "theTasks")
 }
