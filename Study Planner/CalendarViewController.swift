@@ -157,6 +157,9 @@ extension CalendarViewController {
     }
     
     override func tableView(_: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        
+        //print("in willDisplay")
+        
         guard case let cell as DemoCell = cell else {
             return
         }
@@ -171,19 +174,24 @@ extension CalendarViewController {
         
         /////CELL TEXT
         /// --- DATA OF CELL --- ///
-        if let category = categories?[indexPath.row] {
-           // cell.categories = category
-            cell.closeNumberLabel?.text = category.nameOfCategory
-            cell.openNumberLabel?.text = category.nameOfCategory
-            //cell.backgroundColor = categoryColour
-            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
-            
-        }
+//        if let category = categories?[indexPath.row] {
+//           // cell.categories = category
+//            cell.closeNumberLabel?.text = category.nameOfCategory
+//            cell.openNumberLabel?.text = category.nameOfCategory
+//            //cell.backgroundColor = categoryColour
+//            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+//
+//        }
         //cell.closeNumberLabel =
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTaskCell", for: indexPath) as! DemoCell
+        print("in CellforRowAT")
+        cell.myTableView.reloadData()
        // cell.delegate = self
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         
@@ -192,7 +200,14 @@ extension CalendarViewController {
         // cell.textLabel?.text = category.nameOfCategory
         // }
         
-        
+        if let category = categories?[indexPath.row] {
+            // cell.categories = category
+            cell.closeNumberLabel?.text = category.nameOfCategory
+            cell.openNumberLabel?.text = category.nameOfCategory
+            //cell.backgroundColor = categoryColour
+            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+            
+        }
         cell.durationsForExpandedState = durations
         cell.durationsForCollapsedState = durations
         return cell
