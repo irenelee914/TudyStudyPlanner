@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 
 protocol CategoryCellDelegate: class {
-    func showAlert();
+    func showAlert(TESTCategory : Category);
     func doSomething()
 }
 
@@ -39,6 +39,16 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     var selectedCategory : Category?
     
     
+    
+    //NEW NEW NEW NEW
+     var TESTtodoTasks: Results<Todo>?
+    var TESTselectedCategory : Category? {
+        didSet{
+            loadTodoTasks()
+        }
+    }
+    
+    
     @IBOutlet weak var myTableView: UITableView!
     
    
@@ -62,7 +72,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
            // myTableView.register(UINib(nibName: "MessageCell", bundle: nil) , forCellReuseIdentifier: "customMessageCell")
             myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HELLO")
             
-            myTableView.reloadData()
+            //myTableView.reloadData()
             
    
         }
@@ -74,57 +84,70 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("2 \(self.closeNumberLabel.text!)")
+
         
-       // print(demo)
-        //section = demo?.count ?? 1
-        //let count = demo.count
-        
-//        if count != nil {
-//            return demo.count
+//        if TESTselectedCategory != nil {
+//            return
 //        }
 //        else {
 //        return 1
 //        }
        
         //return section
-        return demo?.count ?? 0
+        return TESTtodoTasks?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
        let cell = tableView.dequeueReusableCell(withIdentifier: "HELLO", for: indexPath)
-    print("3 \(self.openNumberLabel.text!)")
-      //  print(self.openNumberLabel.text!)
-       // print(self.createdDate)
-        //loadCategories()
-        
-      // categories = realm.objects(Category.self)
-  //  let demo = realm.objects(Category.self).filter("dateCreated == self.createdDate" )
-         demo = realm.objects(Category.self).filter("nameOfCategory == '\(self.openNumberLabel.text!)' " ).first!.theTasks
-        
-       // print(demo[indexPath.row].todoName)
-       // print(indexPath.row)
-        
+
+        // demo = realm.objects(Category.self).filter("nameOfCategory == '\(self.openNumberLabel.text!)' " ).first!.theTasks
+
+        print("fdsfsd@")
        // self.tableView(myTableView, numberOfRowsInSection: (demo?.count)!)
         
-        if let task = demo?[indexPath.row] {
-            
-             cell.textLabel?.text = task.todoName
-             cell.accessoryType = task.todoDone ? .checkmark : .none
-             cell.textLabel?.textColor = task.todoDone ? .red : .black
-             }
+        if TESTtodoTasks?.count == 0 {
+            do {
+                try realm.write {
+                    let newItem = Todo()
+                    TESTselectedCategory?.theTasks.append(newItem)
+                }
+            } catch {
+                print("Error saving category \(error)")
+            }
+        }
+        
+        print (TESTselectedCategory)
+        if TESTselectedCategory != nil {
+            print("1212121@")
+            if let item = TESTtodoTasks?[indexPath.row]{
+                 print("43242342@")
+                cell.textLabel?.text = item.todoName
+                cell.accessoryType = item.todoDone ? .checkmark : .none
+                cell.textLabel?.textColor = item.todoDone ? .red : .black
+            }
+        }
         
         
 
-       
+        
+        
+        
+//        if let task = demo?[indexPath.row] {
+//
+//             cell.textLabel?.text = task.todoName
+//             cell.accessoryType = task.todoDone ? .checkmark : .none
+//             cell.textLabel?.textColor = task.todoDone ? .red : .black
+//             }
+        
+    
         return cell
     }
     
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        if let task = todoTasks?[indexPath.row] {
+        if let task = TESTtodoTasks?[indexPath.row] {
             do {
                 try realm.write {
                     task.todoDone = !task.todoDone
@@ -155,7 +178,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         
         
       //  selectedCategory =
-        self.delegate?.showAlert()
+        self.delegate?.showAlert(TESTCategory: self.TESTselectedCategory!)
        
         myTableView.reloadData()
         
@@ -194,15 +217,12 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     
     
     
-    func loadCategories(){
-     
-       // self.delegate?.doSomething()
-       
-        print(self.openNumberLabel.text!)
-        todoTasks = selectedCategory?.theTasks.sorted(byKeyPath: "dateCreated", ascending: true)
-        //myTableView.reloadData()
+    func loadTodoTasks(){
+
+        TESTtodoTasks = TESTselectedCategory?.theTasks.sorted(byKeyPath: "todoName", ascending: false)
+        myTableView.reloadData()
         
-       // print("HI")
+        
     }
 
     

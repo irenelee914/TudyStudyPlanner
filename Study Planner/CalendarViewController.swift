@@ -25,7 +25,7 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
 
     
 
-    func showAlert() {
+    func showAlert(TESTCategory : Category) {
         print("in showalert1")
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
@@ -33,16 +33,16 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
         let action = UIAlertAction(title: "Add task", style: .default) { (action) in
             
             
-            if let currentCategory = self.categories?[self.indexPathAYE.row]{
+            //if let currentCategory = self.categories?[self.indexPathAYE.row]{
                 
-               
+            if TESTCategory != nil {
                 
                 do {
                     try self.realm.write {
                         let newItem = Todo()
                         newItem.todoName = textField.text!
                         newItem.dateCreated = Date()
-                        currentCategory.theTasks.append(newItem)
+                        TESTCategory.theTasks.append(newItem)
                     }
                 } catch {
                     print("Error saving new items, \(error)")
@@ -190,8 +190,10 @@ extension CalendarViewController {
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTaskCell", for: indexPath) as! DemoCell
-        print("in CellforRowAT")
-        cell.myTableView.reloadData()
+        
+        
+        
+        //cell.myTableView.reloadData()
        // cell.delegate = self
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         
@@ -202,6 +204,9 @@ extension CalendarViewController {
         
         if let category = categories?[indexPath.row] {
             // cell.categories = category
+            cell.TESTselectedCategory = category
+            
+            
             cell.closeNumberLabel?.text = category.nameOfCategory
             cell.openNumberLabel?.text = category.nameOfCategory
             //cell.backgroundColor = categoryColour
