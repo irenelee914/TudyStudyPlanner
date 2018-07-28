@@ -11,7 +11,7 @@ import UIKit
 import RealmSwift
 
 protocol CategoryCellDelegate: class {
-    func showAlert(TESTCategory : Category);
+    func showAlert(SelectedCategory : Category);
     func doSomething()
 }
 
@@ -19,135 +19,91 @@ protocol CategoryCellDelegate: class {
 
 class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
 
-    
+     //Setup Variables
     weak var delegate:CategoryCellDelegate?
-    
-    /// --- REALM Notification. Update Tableview once new category is added --- ///
-    var notificationToken : NotificationToken?
-    deinit{
-        notificationToken?.invalidate()
-    }
-    
-    var todoTasks: Results<Todo>?
-    var categories: Results<Category>?
     let realm = try! Realm()
-    var demo : List<Todo>?
-    
-    
-    var createdDate = Date()
-    
-    var selectedCategory : Category?
-    
-    
-    
-    //NEW NEW NEW NEW
-     var TESTtodoTasks: Results<Todo>?
-    var TESTselectedCategory : Category? {
+    var todoTasks: Results<Todo>?
+    var selectedCategory : Category? {
         didSet{
             loadTodoTasks()
         }
     }
     
     
+    
+    
+    //REALM Notification
+    var notificationToken : NotificationToken?
+    deinit{
+        notificationToken?.invalidate()
+    }
+    
+
+
     @IBOutlet weak var myTableView: UITableView!
-    
-   
-  
-    
-    
-    
-    
+
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         if superview != nil {
-            // Update the cell
-            
+            // Notification
             notificationToken = realm.observe { [unowned self] note, realm in
                 self.myTableView.reloadData()
             }
-        
-            
             myTableView.delegate = self
             myTableView.dataSource = self
-           // myTableView.register(UINib(nibName: "MessageCell", bundle: nil) , forCellReuseIdentifier: "customMessageCell")
-            myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "HELLO")
-            
-            //myTableView.reloadData()
-            
-   
+            myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         }
     }
     
     
-    
- 
-    
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        
-//        if TESTselectedCategory != nil {
-//            return
-//        }
-//        else {
-//        return 1
-//        }
-       
-        //return section
-        return TESTtodoTasks?.count ?? 1
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return todoTasks?.count ?? 1
     }
     
+    
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+      let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
         
-       let cell = tableView.dequeueReusableCell(withIdentifier: "HELLO", for: indexPath)
-
-        // demo = realm.objects(Category.self).filter("nameOfCategory == '\(self.openNumberLabel.text!)' " ).first!.theTasks
-
-        print("fdsfsd@")
-       // self.tableView(myTableView, numberOfRowsInSection: (demo?.count)!)
-        
-        if TESTtodoTasks?.count == 0 {
+        if todoTasks?.count == 0 {
             do {
                 try realm.write {
                     let newItem = Todo()
-                    TESTselectedCategory?.theTasks.append(newItem)
+                    selectedCategory?.theTasks.append(newItem)
                 }
             } catch {
                 print("Error saving category \(error)")
             }
         }
-        
-        print (TESTselectedCategory)
-        if TESTselectedCategory != nil {
-            print("1212121@")
-            if let item = TESTtodoTasks?[indexPath.row]{
-                 print("43242342@")
+
+        if selectedCategory != nil {
+            if let item = todoTasks?[indexPath.row]{
                 cell.textLabel?.text = item.todoName
-                cell.accessoryType = item.todoDone ? .checkmark : .none
-                cell.textLabel?.textColor = item.todoDone ? .red : .black
+                //cell.accessoryType = item.todoDone ? .checkmark : .none
+                //cell.accessoryType = UITableViewCellAccessoryType.checkmark
+                cell.textLabel?.textColor = item.todoDone ? .gray : .black
+                
+                if item.todoDone == true {
+                    let attributedString = NSMutableAttributedString(string: item.todoName)
+                    attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
+                    cell.textLabel?.attributedText = attributedString
+                }
+                else {
+                    cell.textLabel?.attributedText = nil
+                    cell.textLabel?.text = item.todoName
+                    
+                }
+                
             }
         }
-        
-        
-
-        
-        
-        
-//        if let task = demo?[indexPath.row] {
-//
-//             cell.textLabel?.text = task.todoName
-//             cell.accessoryType = task.todoDone ? .checkmark : .none
-//             cell.textLabel?.textColor = task.todoDone ? .red : .black
-//             }
-        
-    
         return cell
     }
     
+   
     
      func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        if let task = TESTtodoTasks?[indexPath.row] {
+        if let task = todoTasks?[indexPath.row] {
             do {
                 try realm.write {
                     task.todoDone = !task.todoDone
@@ -156,10 +112,8 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
                 print("Error saving done status, \(error)")
             }
         }
-        
         tableView.deselectRow(at: indexPath, animated: true)
         myTableView.reloadData()
-        
     }
     
 
@@ -178,14 +132,8 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         
         
       //  selectedCategory =
-        self.delegate?.showAlert(TESTCategory: self.TESTselectedCategory!)
-       
+        self.delegate?.showAlert(SelectedCategory: self.selectedCategory!)
         myTableView.reloadData()
-        
-        
-        
-        print("eeee")
-    
     }
     
     @IBAction func addNewPinnedTask(_ sender: UIButton) {
@@ -194,7 +142,6 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     
 
     override func awakeFromNib() {
-        print("awakefromnib\(self.openNumberLabel.text!)")
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
@@ -202,55 +149,22 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
 
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {
         let durations = [0.26, 0.2, 0.2]
-        print("1 \(self.openNumberLabel.text!)")
         return durations[itemIndex]
     }
     
     
     
-    func DEMOLOAD(){
-        categories  = realm.objects(Category.self)
-        //tableView.reloadData()
-    }
-    
-    
-    
+
     
     
     func loadTodoTasks(){
-
-        TESTtodoTasks = TESTselectedCategory?.theTasks.sorted(byKeyPath: "todoName", ascending: false)
+        todoTasks = selectedCategory?.theTasks.sorted(byKeyPath: "todoName", ascending: false)
         myTableView.reloadData()
-        
-        
     }
 
-    
-    /// --- SAVE TO REALM --- ///
-    func save(Task: Todo) {
-        do {
-            try realm.write {
-                realm.add(Task)
-            }
-        } catch {
-            print("Error saving category \(error)")
-        }
-        
-        // tableView.reloadData()
-        
-    }
-    
-    
 }
 
-// MARK: - Actions ⚡️
-
-extension DemoCell {
-
-    @IBAction func buttonHandler(_: AnyObject) {
-        print("tap")
-    }
-}
+    
 
 
 

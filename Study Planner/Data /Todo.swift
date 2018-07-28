@@ -12,7 +12,8 @@ import RealmSwift
 class Todo: Object {
     @objc dynamic var todoName : String = ""
     @objc dynamic var todoDone: Bool = false
-    
+    @objc dynamic var pinned: Bool = false
+    @objc dynamic var daysPassed: Int = 0
     @objc dynamic var dateCreated: Date?
    // var parentCategory = LinkingObjects(fromType: Category.self, property: "theTasks")
 }

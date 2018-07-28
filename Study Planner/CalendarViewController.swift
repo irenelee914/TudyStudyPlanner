@@ -25,7 +25,7 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
 
     
 
-    func showAlert(TESTCategory : Category) {
+    func showAlert(SelectedCategory : Category) {
         print("in showalert1")
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
@@ -35,14 +35,14 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
             
             //if let currentCategory = self.categories?[self.indexPathAYE.row]{
                 
-            if TESTCategory != nil {
+            if SelectedCategory != nil {
                 
                 do {
                     try self.realm.write {
                         let newItem = Todo()
                         newItem.todoName = textField.text!
                         newItem.dateCreated = Date()
-                        TESTCategory.theTasks.append(newItem)
+                        SelectedCategory.theTasks.append(newItem)
                     }
                 } catch {
                     print("Error saving new items, \(error)")
@@ -204,7 +204,7 @@ extension CalendarViewController {
         
         if let category = categories?[indexPath.row] {
             // cell.categories = category
-            cell.TESTselectedCategory = category
+            cell.selectedCategory = category
             
             
             cell.closeNumberLabel?.text = category.nameOfCategory
