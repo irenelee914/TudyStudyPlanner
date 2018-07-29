@@ -15,5 +15,9 @@ class Todo: Object {
     @objc dynamic var pinned: Bool = false
     @objc dynamic var daysPassed: Int = 0
     @objc dynamic var dateCreated: Date?
+    @objc dynamic var dateCreatedInDays: Int = 0
+     @objc dynamic var dateCompletedInDays: Int = 0
+    @objc dynamic var dateCompleted: Date?
+    
    // var parentCategory = LinkingObjects(fromType: Category.self, property: "theTasks")
 }

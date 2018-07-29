@@ -9,22 +9,25 @@
 import FoldingCell
 import UIKit
 import RealmSwift
+import ChameleonFramework
 
 protocol CategoryCellDelegate: class {
-    func showAlert(SelectedCategory : Category);
-    func doSomething()
+    func showAlertNotPinned(SelectedCategory : Category)
+    func showAlertPinned(SelectedCategory : Category)
 }
 
 
 
 class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
-
-     //Setup Variables
+    
+    //Setup Variables
     weak var delegate:CategoryCellDelegate?
+    var dateOfViewController:Date?
     let realm = try! Realm()
     var todoTasks: Results<Todo>?
     var selectedCategory : Category? {
         didSet{
+            
             loadTodoTasks()
         }
     }
@@ -38,10 +41,10 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         notificationToken?.invalidate()
     }
     
-
-
+    
+    
     @IBOutlet weak var myTableView: UITableView!
-
+    
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         if superview != nil {
@@ -56,7 +59,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     }
     
     
-
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todoTasks?.count ?? 1
     }
@@ -64,7 +67,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-      let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
         
         if todoTasks?.count == 0 {
             do {
@@ -76,10 +79,11 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
                 print("Error saving category \(error)")
             }
         }
-
+        
         if selectedCategory != nil {
             if let item = todoTasks?[indexPath.row]{
-                cell.textLabel?.text = item.todoName
+                let dateOfVCinDays = Int ((dateOfViewController?.timeIntervalSince1970)!)/(60*60*24)
+                
                 //cell.accessoryType = item.todoDone ? .checkmark : .none
                 //cell.accessoryType = UITableViewCellAccessoryType.checkmark
                 cell.textLabel?.textColor = item.todoDone ? .gray : .black
@@ -88,11 +92,30 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
                     let attributedString = NSMutableAttributedString(string: item.todoName)
                     attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
                     cell.textLabel?.attributedText = attributedString
+                    cell.textLabel?.text = item.todoName
                 }
                 else {
                     cell.textLabel?.attributedText = nil
                     cell.textLabel?.text = item.todoName
+                }
+                
+                
+               var daysPassed = dateOfVCinDays - item.dateCreatedInDays
+               // var lastTimeCompleted =
+                
+
+
+                
+                
+                if daysPassed > 0 && item.pinned == false {
+                    let main_string = "\(item.todoName)      D-\(daysPassed)"
+                    let sub_string = "      D-\(daysPassed)"
+                    let range = (main_string as NSString).range(of: sub_string)
                     
+                    let attribute = NSMutableAttributedString.init(string: main_string)
+                    attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.flatPinkDark , range: range)
+                    cell.textLabel?.attributedText = attribute
+                    //cell.textLabel?.text = "\(item.todoName)   D-\(daysPassed)"
                 }
                 
             }
@@ -100,13 +123,23 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         return cell
     }
     
-   
     
-     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let task = todoTasks?[indexPath.row] {
             do {
                 try realm.write {
                     task.todoDone = !task.todoDone
+                    if task.todoDone == true{
+                        task.dateCompleted = dateOfViewController
+                        task.dateCompletedInDays = Int((self.dateOfViewController?.timeIntervalSince1970)!/(60*60*24))
+                    }
+                    else{
+                        task.dateCompleted = nil
+                        task.dateCompletedInDays = 0
+                    }
+                    
+                    
                 }
             } catch {
                 print("Error saving done status, \(error)")
@@ -116,7 +149,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         myTableView.reloadData()
     }
     
-
+    
     @IBOutlet var menuButton: UIButton!
     
     @IBOutlet var cellColour1: UIView!
@@ -131,22 +164,26 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         
         
         
-      //  selectedCategory =
-        self.delegate?.showAlert(SelectedCategory: self.selectedCategory!)
+        //  selectedCategory =
+        self.delegate?.showAlertNotPinned(SelectedCategory: self.selectedCategory!)
         myTableView.reloadData()
     }
     
     @IBAction func addNewPinnedTask(_ sender: UIButton) {
+        
+        self.delegate?.showAlertPinned(SelectedCategory: self.selectedCategory!)
+        myTableView.reloadData()
+        
     }
     
     
-
+    
     override func awakeFromNib() {
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
     }
-
+    
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {
         let durations = [0.26, 0.2, 0.2]
         return durations[itemIndex]
@@ -154,17 +191,32 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     
     
     
-
+    
     
     
     func loadTodoTasks(){
-        todoTasks = selectedCategory?.theTasks.sorted(byKeyPath: "todoName", ascending: false)
-        myTableView.reloadData()
-    }
+        if dateOfViewController != nil{
+            let dateOfVCinDays = Int ((dateOfViewController?.timeIntervalSince1970)!)/(60*60*24)
+            // todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))")
+            print(dateOfVCinDays)
+//            todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays)) OR (dateCompletedInDays != \(dateOfVCinDays) AND dateCompletedInDays != 0  ) OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )")
 
+            
+            
+           todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))  OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )")
+
+            
+            
+            
+            myTableView.reloadData()
+            print("Welcome")
+        }
+        
+    }
+    
 }
 
-    
+
 
 
 

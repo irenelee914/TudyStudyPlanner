@@ -5,27 +5,32 @@ import RealmSwift
 
 
 class CalendarViewController: UITableViewController, CategoryCellDelegate {
-    func getIndex() -> IndexPath {
-        print("im in indexPathAYE -> CalendarVC")
-        return indexPathAYE
-        
-    }
-    
+
     
     var categoryArray : [Category] = [Category]()
     var categories: Results<Category>?
     var todoTasks: Results<Todo>?
     let realm = try! Realm()
     var indexPathAYE : IndexPath = []
+    var dateOfVC : Date?
+
+
     
-    
-    func doSomething(){
-        print("something")
+    init(date: Date) {
+        super.init(nibName: nil, bundle: nil)
+        
+        dateOfVC = date
     }
-
     
-
-    func showAlert(SelectedCategory : Category) {
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    
+    
+    
+    func showAlertNotPinned(SelectedCategory : Category) {
         print("in showalert1")
         var textField = UITextField()
         let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
@@ -41,7 +46,9 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
                     try self.realm.write {
                         let newItem = Todo()
                         newItem.todoName = textField.text!
-                        newItem.dateCreated = Date()
+                        newItem.pinned = false
+                        newItem.dateCreatedInDays = Int ((self.dateOfVC?.timeIntervalSince1970)!/(60*60*24))
+                        print(newItem.dateCreatedInDays)
                         SelectedCategory.theTasks.append(newItem)
                     }
                 } catch {
@@ -63,7 +70,45 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
         //return (self.categories?[self.indexPathAYE.row])!
     }
     
- 
+    func showAlertPinned(SelectedCategory : Category) {
+      
+        var textField = UITextField()
+        let alert = UIAlertController(title: "Add New Pinned Task", message: "", preferredStyle: .alert)
+        
+        let action = UIAlertAction(title: "Add task", style: .default) { (action) in
+            
+            
+            //if let currentCategory = self.categories?[self.indexPathAYE.row]{
+            
+            if SelectedCategory != nil {
+                
+                do {
+                    try self.realm.write {
+                        let newItem = Todo()
+                        newItem.todoName = textField.text!
+                        newItem.pinned = true
+                        newItem.dateCreatedInDays = Int ((self.dateOfVC?.timeIntervalSince1970)!/(60*60*24))
+                        print(newItem.dateCreatedInDays)
+                        SelectedCategory.theTasks.append(newItem)
+                    }
+                } catch {
+                    print("Error saving new items, \(error)")
+                }
+            }
+            self.tableView.reloadData()
+        }
+        alert.addAction(action)
+        
+        alert.addTextField { (field) in
+            textField = field
+            textField.placeholder = "Add a new category"
+        }
+        self.present(alert, animated: true, completion: nil)
+        print("in showalert33")
+        
+        
+        //return (self.categories?[self.indexPathAYE.row])!
+    }
     
     enum Const {
         static let closeCellHeight: CGFloat = 149
@@ -204,7 +249,9 @@ extension CalendarViewController {
         
         if let category = categories?[indexPath.row] {
             // cell.categories = category
+            cell.dateOfViewController = dateOfVC
             cell.selectedCategory = category
+            
             
             
             cell.closeNumberLabel?.text = category.nameOfCategory

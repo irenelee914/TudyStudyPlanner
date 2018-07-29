@@ -141,8 +141,8 @@ extension ViewController: PagingViewControllerInfiniteDataSource {
     /// --- THIS GENERATES THE VIEWCONTROLLER PER EACH DATE --- ///
   func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, viewControllerForPagingItem pagingItem: T) -> UIViewController {
     let calendarItem = pagingItem as! CalendarItem
-   // return CalendarViewController(date: calendarItem.date)
-    return CalendarViewController()
+    return CalendarViewController(date: calendarItem.date)
+    //return CalendarViewController()
   }
   
   func pagingViewController<T>(_ pagingViewController: PagingViewController<T>, pagingItemBeforePagingItem pagingItem: T) -> T? {
