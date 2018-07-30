@@ -10,15 +10,19 @@ import FoldingCell
 import UIKit
 import RealmSwift
 import ChameleonFramework
+import SwipeCellKit
 
 protocol CategoryCellDelegate: class {
     func showAlertNotPinned(SelectedCategory : Category)
     func showAlertPinned(SelectedCategory : Category)
+    func deleteCategoryCell(SelectedCategory: Category )
 }
 
 
 
-class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
+class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeTableViewCellDelegate {
+   
+    
     
     //Setup Variables
     weak var delegate:CategoryCellDelegate?
@@ -31,7 +35,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
             loadTodoTasks()
         }
     }
-    
+    var pinnedTasksCompletedDatesArray = [Int]()
     
     
     
@@ -50,11 +54,12 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         if superview != nil {
             // Notification
             notificationToken = realm.observe { [unowned self] note, realm in
-                self.myTableView.reloadData()
+                //self.loadTodoTasks()
+                //self.myTableView.reloadData()
             }
             myTableView.delegate = self
             myTableView.dataSource = self
-            myTableView.register(UITableViewCell.self, forCellReuseIdentifier: "DefaultCell")
+            myTableView.register(SwipeTableViewCell.self, forCellReuseIdentifier: "DefaultCell")
         }
     }
     
@@ -67,18 +72,19 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as! SwipeTableViewCell
+        cell.delegate = self
         
-        if todoTasks?.count == 0 {
-            do {
-                try realm.write {
-                    let newItem = Todo()
-                    selectedCategory?.theTasks.append(newItem)
-                }
-            } catch {
-                print("Error saving category \(error)")
-            }
-        }
+//        if todoTasks?.count == 0 {
+//            do {
+//                try realm.write {
+//                    let newItem = Todo()
+//                    selectedCategory?.theTasks.append(newItem)
+//                }
+//            } catch {
+//                print("Error saving category \(error)")
+//            }
+//        }
         
         if selectedCategory != nil {
             if let item = todoTasks?[indexPath.row]{
@@ -86,25 +92,40 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
                 
                 //cell.accessoryType = item.todoDone ? .checkmark : .none
                 //cell.accessoryType = UITableViewCellAccessoryType.checkmark
-                cell.textLabel?.textColor = item.todoDone ? .gray : .black
+                //cell.textLabel?.textColor = item.todoDone ? .gray : .black
                 
-                if item.todoDone == true {
-                    let attributedString = NSMutableAttributedString(string: item.todoName)
-                    attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
-                    cell.textLabel?.attributedText = attributedString
-                    cell.textLabel?.text = item.todoName
+                if item.pinned == false{
+                    if item.todoDone == true {
+                        let attributedString = NSMutableAttributedString(string: item.todoName)
+                        attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(0, attributedString.length))
+                        cell.textLabel?.attributedText = attributedString
+                        cell.textLabel?.text = item.todoName
+                        cell.textLabel?.textColor = .gray
+                    }
+                    else {
+                        cell.textLabel?.attributedText = nil
+                        cell.textLabel?.text = item.todoName
+                        cell.textLabel?.textColor = .black
+                    }
                 }
-                else {
-                    cell.textLabel?.attributedText = nil
-                    cell.textLabel?.text = item.todoName
+                var daysPassed = dateOfVCinDays - item.dateCreatedInDays
+                // var lastTimeCompleted =
+                
+                if item.pinned == true {
+                    if item.pinnedTasksCompletedDates.contains("\(dateOfVCinDays)"){
+                        let attributedString = NSMutableAttributedString(string: "📌  \(item.todoName)")
+                        attributedString.addAttribute(NSAttributedStringKey.strikethroughStyle, value: 2, range: NSMakeRange(3, attributedString.length-3))
+                        cell.textLabel?.attributedText = attributedString
+                        //cell.textLabel?.text = "📌  \(item.todoName)"
+                        cell.textLabel?.textColor = .gray
+                    }
+                    else{
+                        cell.textLabel?.attributedText = nil
+                        cell.textLabel?.text = "📌  \(item.todoName)"
+                        cell.textLabel?.textColor = .black
+                    }
                 }
                 
-                
-               var daysPassed = dateOfVCinDays - item.dateCreatedInDays
-               // var lastTimeCompleted =
-                
-
-
                 
                 
                 if daysPassed > 0 && item.pinned == false {
@@ -129,16 +150,38 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         if let task = todoTasks?[indexPath.row] {
             do {
                 try realm.write {
-                    task.todoDone = !task.todoDone
-                    if task.todoDone == true{
-                        task.dateCompleted = dateOfViewController
-                        task.dateCompletedInDays = Int((self.dateOfViewController?.timeIntervalSince1970)!/(60*60*24))
+                    if task.pinned == false{
+                        if task.todoDone == false {
+                            task.todoDone = true
+                            task.dateCompleted = dateOfViewController
+                            task.dateCompletedInDays = Int((self.dateOfViewController?.timeIntervalSince1970)!/(60*60*24))
+                        }
+                        else{
+                            task.todoDone = false
+                            task.dateCompleted = nil
+                            task.dateCompletedInDays = 0
+                        }
                     }
-                    else{
-                        task.dateCompleted = nil
-                        task.dateCompletedInDays = 0
-                    }
+                    let dateOfVCinDays = Int ((dateOfViewController?.timeIntervalSince1970)!)/(60*60*24)
                     
+                    if task.pinned == true{
+                        print("notchange3")
+                        if task.pinnedTasksCompletedDates.contains("\(dateOfVCinDays)"){
+                            
+                            if let range = task.pinnedTasksCompletedDates.range(of: " \(dateOfVCinDays) "){
+                                task.pinnedTasksCompletedDates.removeSubrange(range)
+                                print("changed")
+                            }
+                            
+                            
+                            //                            task.pinnedTasksCompletedDates.append("\(dateOfVCinDays )")
+                            //                            print("notchange")
+                        }
+                        else{
+                            task.pinnedTasksCompletedDates.append(" \(dateOfVCinDays) ")
+                            print("notchange")
+                        }
+                    }
                     
                 }
             } catch {
@@ -149,20 +192,71 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
         myTableView.reloadData()
     }
     
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
+        
+        guard orientation == .right else { return nil }
+        
+        let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
+            // handle action by updating model with deletion
+            self.updateModel(at: indexPath)
+            
+        }
+        
+        // customize the action appearance
+//        deleteAction.image = UIImage(named: "delete-icon")
+        
+        return [deleteAction]
+    }
     
-    @IBOutlet var menuButton: UIButton!
+    func tableView(_ tableView: UITableView, editActionsOptionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> SwipeOptions {
+        var options = SwipeOptions()
+        options.expansionStyle = .destructive
+        options.transitionStyle = .border
+        return options
+    }
+    
+    func updateModel(at indexPath: IndexPath) {
+        if let item = todoTasks?[indexPath.row] {
+            do {
+                try realm.write {
+                    realm.delete(item)
+                }
+            } catch {
+                print("Error deleting Item, \(error)")
+            }
+        }
+       // loadTodoTasks()
+       
+    }
+    
+    
+    
+    
+    @IBAction func menuButton(_ sender: UIButton) {
+   
+        if todoTasks != nil {
+            do {
+                try realm.write {
+                    realm.delete(todoTasks!)
+                }
+            } catch {
+                print("Error deleting Item, \(error)")
+            }
+        }
+        
+        self.delegate?.deleteCategoryCell(SelectedCategory: self.selectedCategory!)
+       
+        //myTableView.reloadData()
+      
+    }
+    
     
     @IBOutlet var cellColour1: UIView!
     @IBOutlet var cellColour2: UILabel!
-    
-    
     @IBOutlet var Label: UILabel!
     @IBOutlet var closeNumberLabel: UILabel!
     @IBOutlet var openNumberLabel: UILabel!
     @IBAction func addNewTask(_ sender: UIButton) {
-        
-        
-        
         
         //  selectedCategory =
         self.delegate?.showAlertNotPinned(SelectedCategory: self.selectedCategory!)
@@ -199,12 +293,10 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource {
             let dateOfVCinDays = Int ((dateOfViewController?.timeIntervalSince1970)!)/(60*60*24)
             // todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))")
             print(dateOfVCinDays)
-//            todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays)) OR (dateCompletedInDays != \(dateOfVCinDays) AND dateCompletedInDays != 0  ) OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )")
-
+            //            todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays)) OR (dateCompletedInDays != \(dateOfVCinDays) AND dateCompletedInDays != 0  ) OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )")
             
+            todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))  OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )").sorted(byKeyPath: "pinned", ascending: false).sorted(byKeyPath: "dateCreatedInDays", ascending: true)
             
-           todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))  OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )")
-
             
             
             

@@ -7,6 +7,8 @@ import RealmSwift
 class CalendarViewController: UITableViewController, CategoryCellDelegate {
 
     
+
+    
     var categoryArray : [Category] = [Category]()
     var categories: Results<Category>?
     var todoTasks: Results<Todo>?
@@ -28,7 +30,17 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
     
     
     
-    
+    func deleteCategoryCell(SelectedCategory: Category) {
+        if SelectedCategory != nil{
+            do {
+                try self.realm.write {
+                    self.realm.delete(SelectedCategory)
+                }
+            } catch {
+                print("Error deleting category, \(error)")
+            }
+        }
+    }
     
     func showAlertNotPinned(SelectedCategory : Category) {
         print("in showalert1")

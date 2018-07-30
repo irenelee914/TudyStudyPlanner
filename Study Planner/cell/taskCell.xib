@@ -83,6 +83,9 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fx2-qn-mlb">
                                                 <rect key="frame" x="14" y="10" width="38" height="29"/>
                                                 <state key="normal" image="burger"/>
+                                                <connections>
+                                                    <action selector="menuButton:" destination="UnR-Ik-2py" eventType="touchUpInside" id="JBa-It-cmw"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTs-uM-EYi">
                                                 <rect key="frame" x="0.0" y="1" width="560" height="49"/>
@@ -182,7 +185,6 @@
                 <outlet property="containerViewTop" destination="2zf-W4-EEd" id="Tp2-fE-CpF"/>
                 <outlet property="foregroundView" destination="fU7-Hs-Tbf" id="GMb-eq-cbR"/>
                 <outlet property="foregroundViewTop" destination="1xa-eh-pU1" id="DAk-w2-CLs"/>
-                <outlet property="menuButton" destination="fx2-qn-mlb" id="Abf-7i-gCy"/>
                 <outlet property="myTableView" destination="iaT-KZ-3Xv" id="Yub-Jf-GKw"/>
                 <outlet property="openNumberLabel" destination="YTs-uM-EYi" id="B5f-iA-7zm"/>
             </connections>
