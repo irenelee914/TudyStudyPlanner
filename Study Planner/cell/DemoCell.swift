@@ -21,7 +21,7 @@ protocol CategoryCellDelegate: class {
 
 
 class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeTableViewCellDelegate {
-   
+    
     
     
     //Setup Variables
@@ -74,26 +74,9 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DefaultCell", for: indexPath) as! SwipeTableViewCell
         cell.delegate = self
-        
-//        if todoTasks?.count == 0 {
-//            do {
-//                try realm.write {
-//                    let newItem = Todo()
-//                    selectedCategory?.theTasks.append(newItem)
-//                }
-//            } catch {
-//                print("Error saving category \(error)")
-//            }
-//        }
-        
         if selectedCategory != nil {
             if let item = todoTasks?[indexPath.row]{
                 let dateOfVCinDays = Int ((dateOfViewController?.timeIntervalSince1970)!)/(60*60*24)
-                
-                //cell.accessoryType = item.todoDone ? .checkmark : .none
-                //cell.accessoryType = UITableViewCellAccessoryType.checkmark
-                //cell.textLabel?.textColor = item.todoDone ? .gray : .black
-                
                 if item.pinned == false{
                     if item.todoDone == true {
                         let attributedString = NSMutableAttributedString(string: item.todoName)
@@ -107,9 +90,9 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
                         cell.textLabel?.text = item.todoName
                         cell.textLabel?.textColor = .black
                     }
+                    writeToClosedCell(indexPath : indexPath.row, taskName : item.todoName, pinned: item.pinned)
                 }
                 var daysPassed = dateOfVCinDays - item.dateCreatedInDays
-                // var lastTimeCompleted =
                 
                 if item.pinned == true {
                     if item.pinnedTasksCompletedDates.contains("\(dateOfVCinDays)"){
@@ -124,6 +107,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
                         cell.textLabel?.text = "📌  \(item.todoName)"
                         cell.textLabel?.textColor = .black
                     }
+                    writeToClosedCell(indexPath : indexPath.row, taskName : item.todoName, pinned: item.pinned)
                 }
                 
                 
@@ -136,6 +120,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
                     let attribute = NSMutableAttributedString.init(string: main_string)
                     attribute.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.flatPinkDark , range: range)
                     cell.textLabel?.attributedText = attribute
+                    writeToClosedCell(indexPath : indexPath.row, taskName : item.todoName, pinned: item.pinned)
                     //cell.textLabel?.text = "\(item.todoName)   D-\(daysPassed)"
                 }
                 
@@ -203,7 +188,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
         }
         
         // customize the action appearance
-//        deleteAction.image = UIImage(named: "delete-icon")
+        //        deleteAction.image = UIImage(named: "delete-icon")
         
         return [deleteAction]
     }
@@ -225,15 +210,15 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
                 print("Error deleting Item, \(error)")
             }
         }
-       // loadTodoTasks()
-       
+        // loadTodoTasks()
+        
     }
     
     
     
     
     @IBAction func menuButton(_ sender: UIButton) {
-   
+        
         if todoTasks != nil {
             do {
                 try realm.write {
@@ -245,11 +230,17 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
         }
         
         self.delegate?.deleteCategoryCell(SelectedCategory: self.selectedCategory!)
-       
+        
         //myTableView.reloadData()
-      
+        
     }
     
+    
+    @IBOutlet var closedTask1: UILabel!
+    @IBOutlet var closedTask2: UILabel!
+    @IBOutlet var closedTask3: UILabel!
+    @IBOutlet var closedTask4: UILabel!
+    @IBOutlet var closedTask5: UILabel!
     
     @IBOutlet var cellColour1: UIView!
     @IBOutlet var cellColour2: UILabel!
@@ -283,7 +274,53 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
         return durations[itemIndex]
     }
     
-    
+    func writeToClosedCell(indexPath : Int, taskName : String, pinned : Bool) {
+        
+        if indexPath == 0 {
+            if pinned {
+                closedTask1.text = "▸  \(taskName)"
+            }
+            else{
+                closedTask1.text = "◦  \(taskName)"
+            }
+            
+        }
+        else if indexPath == 1{
+            if pinned {
+                closedTask2.text = "▸  \(taskName)"
+            }
+            else{
+                closedTask2.text = "◦  \(taskName)"
+            }
+        }
+        else if indexPath == 2{
+            if pinned {
+                closedTask3.text = "▸  \(taskName)"
+            }
+            else{
+                closedTask3.text = "◦  \(taskName)"
+            }
+            
+        }
+        else if indexPath == 3{
+            if pinned {
+                closedTask4.text = "▸  \(taskName)"
+            }
+            else{
+                closedTask4.text = "◦  \(taskName)"
+            }
+            
+        }
+        else if indexPath == 4{
+            if pinned {
+                closedTask5.text = "▸  \(taskName)"
+            }
+            else{
+                closedTask5.text = "◦  \(taskName)"
+            }
+            
+        }
+    }
     
     
     

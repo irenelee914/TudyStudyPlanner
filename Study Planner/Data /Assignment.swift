@@ -11,14 +11,17 @@ import RealmSwift
 
 class Assignment: Object {
     @objc dynamic var nameOfAssignment: String = ""
-    
     @objc dynamic var dueDate: String = ""
     @objc dynamic var daysLeft: Int = 0
     @objc dynamic var startDate: String = ""
+    @objc dynamic var tag: String = ""
     @objc dynamic var notes: String = ""
    // @objc dynamic var repeats: Bool = false
     @objc dynamic var weighting: Float = 0.0
     @objc dynamic var dateCreated: Date?
+    
+    @objc dynamic var startDateInDays: Int = 0
+    @objc dynamic var dateDueInDays: Int = 0
     
     
     

@@ -29,7 +29,10 @@
 		136AE7CF2102502C000E1152 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CE2102502C000E1152 /* Assignment.swift */; };
 		136AE7D12102503F000E1152 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7D02102503F000E1152 /* Event.swift */; };
 		13AB6C65210564A6005946AD /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6C64210564A6005946AD /* Todo.swift */; };
-		859F2A7E823EEE093CA8B27B /* Pods_Study_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */; };
+		13CD6B46211004BB0048E448 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CD6B45211004BB0048E448 /* UIColor+Utils.swift */; };
+		13CD6B49211264560048E448 /* assignmentCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CD6B47211264560048E448 /* assignmentCellTableViewCell.swift */; };
+		13CD6B4A211264560048E448 /* assignmentCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CD6B48211264560048E448 /* assignmentCellTableViewCell.xib */; };
+		3E4BD653B3EE2C6A3BCA81D4 /* Pods_Study_Planner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4683FD407009B53A0AEDC8 /* Pods_Study_Planner.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,9 +70,12 @@
 		136AE7CE2102502C000E1152 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		136AE7D02102503F000E1152 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		13AB6C64210564A6005946AD /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
-		7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.debug.xcconfig"; sourceTree = "<group>"; };
-		F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.release.xcconfig"; sourceTree = "<group>"; };
+		13CD6B45211004BB0048E448 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
+		13CD6B47211264560048E448 /* assignmentCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignmentCellTableViewCell.swift; sourceTree = "<group>"; };
+		13CD6B48211264560048E448 /* assignmentCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = assignmentCellTableViewCell.xib; sourceTree = "<group>"; };
+		82096AAEEB3D9A4665B7099B /* Pods-Study Planner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.debug.xcconfig"; sourceTree = "<group>"; };
+		AB4683FD407009B53A0AEDC8 /* Pods_Study_Planner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Study_Planner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBADE643EB97ACFAF9B2452A /* Pods-Study Planner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Study Planner.release.xcconfig"; path = "Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,7 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				859F2A7E823EEE093CA8B27B /* Pods_Study_Planner.framework in Frameworks */,
+				3E4BD653B3EE2C6A3BCA81D4 /* Pods_Study_Planner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,8 +95,8 @@
 			children = (
 				136AE77621013DF7000E1152 /* Study Planner */,
 				136AE77521013DF7000E1152 /* Products */,
-				C1825B12C9EA585616071367 /* Pods */,
-				DC37E4DDE8EF67D917A2381F /* Frameworks */,
+				98E5EC2A2A803E818E0E3A8D /* Pods */,
+				E0EF932627D01F4DD321D8FB /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -114,6 +120,7 @@
 				136AE7AF210156A3000E1152 /* CalendarViewController.swift */,
 				136AE78B210140D7000E1152 /* StartViewController.swift */,
 				136AE7AA210156A3000E1152 /* ViewController.swift */,
+				13CD6B45211004BB0048E448 /* UIColor+Utils.swift */,
 				136AE77D21013DF7000E1152 /* Main.storyboard */,
 				136AE78221013DF8000E1152 /* LaunchScreen.storyboard */,
 				136AE78521013DF8000E1152 /* Info.plist */,
@@ -158,6 +165,8 @@
 			isa = PBXGroup;
 			children = (
 				136AE7C5210193BC000E1152 /* DemoCell.swift */,
+				13CD6B47211264560048E448 /* assignmentCellTableViewCell.swift */,
+				13CD6B48211264560048E448 /* assignmentCellTableViewCell.xib */,
 				136AE7C7210193FC000E1152 /* taskCell.xib */,
 			);
 			path = cell;
@@ -174,19 +183,19 @@
 			path = "Data ";
 			sourceTree = "<group>";
 		};
-		C1825B12C9EA585616071367 /* Pods */ = {
+		98E5EC2A2A803E818E0E3A8D /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */,
-				F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */,
+				82096AAEEB3D9A4665B7099B /* Pods-Study Planner.debug.xcconfig */,
+				EBADE643EB97ACFAF9B2452A /* Pods-Study Planner.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		DC37E4DDE8EF67D917A2381F /* Frameworks */ = {
+		E0EF932627D01F4DD321D8FB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7B36D6882FACDE8D4CE64F3D /* Pods_Study_Planner.framework */,
+				AB4683FD407009B53A0AEDC8 /* Pods_Study_Planner.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -198,11 +207,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 136AE78821013DF8000E1152 /* Build configuration list for PBXNativeTarget "Study Planner" */;
 			buildPhases = (
-				1BAA5BAD11A1C92C9A8E99E2 /* [CP] Check Pods Manifest.lock */,
+				A6ED6F275DCF3BF6481A9861 /* [CP] Check Pods Manifest.lock */,
 				136AE77021013DF7000E1152 /* Sources */,
 				136AE77121013DF7000E1152 /* Frameworks */,
 				136AE77221013DF7000E1152 /* Resources */,
-				9C15729B897634C24601C423 /* [CP] Embed Pods Frameworks */,
+				802910D6F4CC3468627FD400 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -255,6 +264,7 @@
 				136AE794210141FF000E1152 /* Product Sans Regular.ttf in Resources */,
 				136AE78421013DF8000E1152 /* LaunchScreen.storyboard in Resources */,
 				136AE792210141FF000E1152 /* Product Sans Bold Italic.ttf in Resources */,
+				13CD6B4A211264560048E448 /* assignmentCellTableViewCell.xib in Resources */,
 				136AE78121013DF8000E1152 /* Assets.xcassets in Resources */,
 				136AE7C8210193FC000E1152 /* taskCell.xib in Resources */,
 				136AE77F21013DF7000E1152 /* Main.storyboard in Resources */,
@@ -265,7 +275,47 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1BAA5BAD11A1C92C9A8E99E2 /* [CP] Check Pods Manifest.lock */ = {
+		802910D6F4CC3468627FD400 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
+				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
+				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
+				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
+				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyDrop/SwiftyDrop.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDrop.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A6ED6F275DCF3BF6481A9861 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -283,38 +333,6 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		9C15729B897634C24601C423 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
-				"${BUILT_PRODUCTS_DIR}/FoldingCell/FoldingCell.framework",
-				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
-				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
-				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
-				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FoldingCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -322,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13CD6B46211004BB0048E448 /* UIColor+Utils.swift in Sources */,
 				136AE7B1210156A3000E1152 /* ViewController.swift in Sources */,
 				136AE77C21013DF7000E1152 /* SecondViewController.swift in Sources */,
 				136AE7B4210156A3000E1152 /* CalendarPagingCell.swift in Sources */,
@@ -329,6 +348,7 @@
 				136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */,
 				136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */,
 				136AE78C210140D7000E1152 /* StartViewController.swift in Sources */,
+				13CD6B49211264560048E448 /* assignmentCellTableViewCell.swift in Sources */,
 				13AB6C65210564A6005946AD /* Todo.swift in Sources */,
 				136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */,
 				136AE7B3210156A3000E1152 /* UIColor+interpolation.swift in Sources */,
@@ -477,7 +497,7 @@
 		};
 		136AE78921013DF8000E1152 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A54865B6F0C7B5986A1D11F6 /* Pods-Study Planner.debug.xcconfig */;
+			baseConfigurationReference = 82096AAEEB3D9A4665B7099B /* Pods-Study Planner.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -495,7 +515,7 @@
 		};
 		136AE78A21013DF8000E1152 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F34E45E0B3B1611A935E96B9 /* Pods-Study Planner.release.xcconfig */;
+			baseConfigurationReference = EBADE643EB97ACFAF9B2452A /* Pods-Study Planner.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

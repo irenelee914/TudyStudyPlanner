@@ -1,13 +1,13 @@
 import UIKit
 import FoldingCell
 import RealmSwift
-
+import SwiftEntryKit
 
 
 class CalendarViewController: UITableViewController, CategoryCellDelegate {
-
     
-
+    
+    
     
     var categoryArray : [Category] = [Category]()
     var categories: Results<Category>?
@@ -15,8 +15,8 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
     let realm = try! Realm()
     var indexPathAYE : IndexPath = []
     var dateOfVC : Date?
-
-
+    
+    
     
     init(date: Date) {
         super.init(nibName: nil, bundle: nil)
@@ -43,21 +43,22 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
     }
     
     func showAlertNotPinned(SelectedCategory : Category) {
-        print("in showalert1")
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Todo", message: "", preferredStyle: .alert)
+
+        var textField : [EKProperty.TextFieldContent] = []
+        let title = EKProperty.LabelContent(text: "Create New Task", style: .init(font: .systemFont(ofSize: 16), color: EKColor.Gray.a800, alignment: .center, numberOfLines: 1))
+        let buttonText = EKProperty.LabelContent(text: "Create", style: .init(font: .systemFont(ofSize: 16), color: .white))
         
-        let action = UIAlertAction(title: "Add task", style: .default) { (action) in
+        let description1 = EKProperty.LabelContent(text: "Task Name", style: .init(font: .systemFont(ofSize: 10), color: .darkGray))
+        let image1 = UIImage(named: "pencil")
+        let textField1 = EKProperty.TextFieldContent(keyboardType: .emailAddress, placeholder: description1, textStyle: .init(font: .systemFont(ofSize: 10), color: .black), isSecure: false, leadingImage: image1 , bottomBorderColor: .darkGray)
+
+        let button = EKProperty.ButtonContent(label: buttonText, backgroundColor: .flatPurple, highlightedBackgroundColor: .flatBlue) {
             
-            
-            //if let currentCategory = self.categories?[self.indexPathAYE.row]{
-                
             if SelectedCategory != nil {
-                
                 do {
                     try self.realm.write {
                         let newItem = Todo()
-                        newItem.todoName = textField.text!
+                        newItem.todoName = textField1.output
                         newItem.pinned = false
                         newItem.dateCreatedInDays = Int ((self.dateOfVC?.timeIntervalSince1970)!/(60*60*24))
                         print(newItem.dateCreatedInDays)
@@ -67,37 +68,48 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
                     print("Error saving new items, \(error)")
                 }
             }
-            self.tableView.reloadData()
+            SwiftEntryKit.dismiss()
         }
-            alert.addAction(action)
-            
-            alert.addTextField { (field) in
-                textField = field
-                textField.placeholder = "Add a new category"
-            }
-            self.present(alert, animated: true, completion: nil)
-            print("in showalert33")
         
-        
-        //return (self.categories?[self.indexPathAYE.row])!
+        var attributes = EKAttributes.centerFloat
+        attributes = .float
+        attributes.windowLevel = .normal
+        attributes.position = .center
+        attributes.displayDuration = .infinity
+        attributes.entranceAnimation = .init(translate: .init(duration: 0.65, anchorPosition: .bottom,  spring: .init(damping: 1, initialVelocity: 0)))
+        attributes.exitAnimation = .init(translate: .init(duration: 0.65, anchorPosition: .top, spring: .init(damping: 1, initialVelocity: 0)))
+        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.65, spring: .init(damping: 1, initialVelocity: 0))))
+        attributes.entryInteraction = .absorbTouches
+        attributes.screenInteraction = .dismiss
+        attributes.entryBackground = .color(color: .white)
+        attributes.screenBackground = .color(color: .dimmedDarkBackground)
+        attributes.border = .value(color: UIColor(white: 0.8784, alpha: 0.6), width: 0.6)
+        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 3))
+        attributes.scroll = .enabled(swipeable: false, pullbackAnimation: .jolt)
+        attributes.statusBar = .light
+        attributes.positionConstraints.keyboardRelation = .bind(offset: .init(bottom: 15, screenEdgeResistance: 0))
+
+        textField.append(textField1)
+        if textField != nil {
+            let contentView = EKFormMessageView(with: title, textFieldsContent: textField, buttonContent: button)
+            SwiftEntryKit.display(entry: contentView, using: attributes)
+        }
     }
     
     func showAlertPinned(SelectedCategory : Category) {
-      
-        var textField = UITextField()
-        let alert = UIAlertController(title: "Add New Pinned Task", message: "", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Add task", style: .default) { (action) in
-            
-            
-            //if let currentCategory = self.categories?[self.indexPathAYE.row]{
-            
+        var textField : [EKProperty.TextFieldContent] = []
+        let title = EKProperty.LabelContent(text: "Create New Pinned Task", style: .init(font: .systemFont(ofSize: 16), color: EKColor.Gray.a800, alignment: .center, numberOfLines: 1))
+        let buttonText = EKProperty.LabelContent(text: "Create", style: .init(font: .systemFont(ofSize: 16), color: .white))
+        let description1 = EKProperty.LabelContent(text: "Pinned Task Name", style: .init(font: .systemFont(ofSize: 10), color: .darkGray))
+        let image1 = UIImage(named: "pencil")
+        let textField1 = EKProperty.TextFieldContent(keyboardType: .emailAddress, placeholder: description1, textStyle: .init(font: .systemFont(ofSize: 10), color: .black), isSecure: false, leadingImage: image1 , bottomBorderColor: .darkGray)
+
+        let button = EKProperty.ButtonContent(label: buttonText, backgroundColor: .flatPurple, highlightedBackgroundColor: .flatBlue) {
             if SelectedCategory != nil {
-                
                 do {
                     try self.realm.write {
                         let newItem = Todo()
-                        newItem.todoName = textField.text!
+                        newItem.todoName = textField1.output
                         newItem.pinned = true
                         newItem.dateCreatedInDays = Int ((self.dateOfVC?.timeIntervalSince1970)!/(60*60*24))
                         print(newItem.dateCreatedInDays)
@@ -107,19 +119,32 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
                     print("Error saving new items, \(error)")
                 }
             }
-            self.tableView.reloadData()
+            SwiftEntryKit.dismiss()
         }
-        alert.addAction(action)
         
-        alert.addTextField { (field) in
-            textField = field
-            textField.placeholder = "Add a new category"
+        var attributes = EKAttributes.centerFloat
+        attributes = .float
+        attributes.windowLevel = .normal
+        attributes.position = .center
+        attributes.displayDuration = .infinity
+        attributes.entranceAnimation = .init(translate: .init(duration: 0.65, anchorPosition: .bottom,  spring: .init(damping: 1, initialVelocity: 0)))
+        attributes.exitAnimation = .init(translate: .init(duration: 0.65, anchorPosition: .top, spring: .init(damping: 1, initialVelocity: 0)))
+        attributes.popBehavior = .animated(animation: .init(translate: .init(duration: 0.65, spring: .init(damping: 1, initialVelocity: 0))))
+        attributes.entryInteraction = .absorbTouches
+        attributes.screenInteraction = .dismiss
+        attributes.entryBackground = .color(color: .white)
+        attributes.screenBackground = .color(color: .dimmedDarkBackground)
+        attributes.border = .value(color: UIColor(white: 0.8784, alpha: 0.6), width: 0.6)
+        attributes.shadow = .active(with: .init(color: .black, opacity: 0.3, radius: 3))
+        attributes.scroll = .enabled(swipeable: false, pullbackAnimation: .jolt)
+        attributes.statusBar = .light
+        attributes.positionConstraints.keyboardRelation = .bind(offset: .init(bottom: 15, screenEdgeResistance: 0))
+        textField.append(textField1)
+
+        if textField != nil {
+            let contentView = EKFormMessageView(with: title, textFieldsContent: textField, buttonContent: button)
+            SwiftEntryKit.display(entry: contentView, using: attributes)
         }
-        self.present(alert, animated: true, completion: nil)
-        print("in showalert33")
-        
-        
-        //return (self.categories?[self.indexPathAYE.row])!
     }
     
     enum Const {
@@ -138,7 +163,7 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate {
         notificationToken?.invalidate()
     }
     
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -220,7 +245,7 @@ extension CalendarViewController {
         guard case let cell as DemoCell = cell else {
             return
         }
-       // cell.delegate = self
+        // cell.delegate = self
         cell.backgroundColor = .clear
         
         if cellHeights[indexPath.row] == Const.closeCellHeight {
@@ -229,21 +254,11 @@ extension CalendarViewController {
             cell.unfold(true, animated: false, completion: nil)
         }
         
-        /////CELL TEXT
-        /// --- DATA OF CELL --- ///
-//        if let category = categories?[indexPath.row] {
-//           // cell.categories = category
-//            cell.closeNumberLabel?.text = category.nameOfCategory
-//            cell.openNumberLabel?.text = category.nameOfCategory
-//            //cell.backgroundColor = categoryColour
-//            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
-//
-//        }
-        //cell.closeNumberLabel =
+
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-       
+        
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTaskCell", for: indexPath) as! DemoCell
@@ -251,25 +266,55 @@ extension CalendarViewController {
         
         
         //cell.myTableView.reloadData()
-       // cell.delegate = self
+        // cell.delegate = self
         let durations: [TimeInterval] = [0.26, 0.2, 0.2]
         
-        /// --- DATA OF CELL --- ///
-        // if let category = categories?[indexPath.row] {
-        // cell.textLabel?.text = category.nameOfCategory
-        // }
+
         
         if let category = categories?[indexPath.row] {
-            // cell.categories = category
+
             cell.dateOfViewController = dateOfVC
             cell.selectedCategory = category
-            
-            
-            
+            cell.Label?.text = category.notes
             cell.closeNumberLabel?.text = category.nameOfCategory
             cell.openNumberLabel?.text = category.nameOfCategory
-            //cell.backgroundColor = categoryColour
-            //cell.textLabel?.textColor = ContrastColorOf(categoryColour, returnFlat: true)
+
+//            if dateOfVC != nil{
+//                let dateOfVCinDays = Int ((dateOfVC?.timeIntervalSince1970)!)/(60*60*24)
+//                todoTasks = category.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))  OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )").sorted(byKeyPath: "pinned", ascending: false).sorted(byKeyPath: "dateCreatedInDays", ascending: true)
+//
+//                if let item = todoTasks?[indexPath.row]{
+//                print(indexPath.row)
+//
+//                if indexPath.row == 0 {
+//                    cell.closedTask1.text = item.todoName
+//                    print("0")
+//                    //closedTask1.attributedText = attribute
+//                }
+//                else if indexPath.row == 1{
+//                    print("1")
+//                    cell.closedTask2.text = item.todoName
+//                    //closedTask2.attributedText = attribute
+//                }
+//                else if indexPath.row == 2{
+//                    print("2")
+//                    cell.closedTask3.text = item.todoName
+//                    //closedTask3.attributedText = attribute
+//                }
+//                else if indexPath.row == 3{
+//                    cell.closedTask4.text = item.todoName
+//                    //closedTask4.attributedText = attribute
+//                }
+//                else if indexPath.row == 4{
+//                    cell.closedTask5.text = item.todoName
+//                    //closedTask5.attributedText = attribute
+//                }
+//
+//                }
+      
+           // }
+            
+            
             
         }
         cell.durationsForExpandedState = durations
@@ -317,11 +362,6 @@ extension CalendarViewController {
             tableView.endUpdates()
         }, completion: nil)
         
-        
-        //        let destinationCell = DemoCell()
-        //        if let indexPath = tableView.indexPathForSelectedRow{
-        //            destinationCell.selectedCategory = categories?[indexPath.row]
-        //        }
         
         
     }

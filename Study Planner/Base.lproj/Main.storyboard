@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -26,29 +27,52 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hello" translatesAutoresizingMaskIntoConstraints="NO" id="Y4z-ej-m6i">
-                                <rect key="frame" x="0.0" y="217" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="hello" translatesAutoresizingMaskIntoConstraints="NO" id="Y4z-ej-m6i">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Y4z-ej-m6i" id="RiU-7g-A5O">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.0" green="0.99143940210000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="6up-uf-bas"/>
+                                    <constraint firstAttribute="height" constant="44" id="Ihz-g0-3Fg"/>
+                                </constraints>
                             </tableViewCell>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hym-VC-9Kt">
+                                <rect key="frame" x="137" y="214" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Y4z-ej-m6i" secondAttribute="trailing" id="Ol7-dr-uO0"/>
+                            <constraint firstItem="Y4z-ej-m6i" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="cyA-mn-HmB"/>
+                            <constraint firstItem="Y4z-ej-m6i" firstAttribute="leading" secondItem="tsR-hK-woN" secondAttribute="leading" id="gQD-lb-2gQ"/>
+                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Y4z-ej-m6i" secondAttribute="bottom" constant="574" id="ubd-Gn-vzy"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                     </view>
                     <navigationItem key="navigationItem" id="WxH-tS-xrA">
+                        <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="Today" id="1Ly-Ef-scL">
                             <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qeP-Vs-2gd">
-                            <color key="tintColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                            <connections>
-                                <action selector="addNewCategory:" destination="9pv-A4-QxB" id="RXi-tc-1J7"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="test (1)" id="KC6-mR-bDz">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addNewAssignment:" destination="9pv-A4-QxB" id="vFM-Rk-A38"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem image="list (1)" id="XvQ-gL-2hy">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="addNewCategory:" destination="9pv-A4-QxB" id="PHS-su-84A"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
@@ -204,6 +228,8 @@
     </scenes>
     <resources>
         <image name="first" width="30" height="30"/>
+        <image name="list (1)" width="24" height="24"/>
         <image name="second" width="30" height="30"/>
+        <image name="test (1)" width="24" height="24"/>
     </resources>
 </document>
