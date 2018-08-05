@@ -16,6 +16,20 @@ class Category: Object{
     @objc dynamic var notes: String = ""
     @objc dynamic var colour: String = ""
     @objc dynamic var underWhichDate: String = ""
+    ///////////////////////////////////////////////////////////////
+    @objc dynamic var isAssignment: Bool = false
+    @objc dynamic var nameOfAssignment: String = ""
+    @objc dynamic var assignmentDueDate: String = ""
+    @objc dynamic var assignmentDaysLeft: Int = 0
+    @objc dynamic var assignmentStartDate: String = ""
+    @objc dynamic var assignmentTag: String = ""
+    @objc dynamic var assignmentNotes: String = ""
+    // @objc dynamic var repeats: Bool = false
+    @objc dynamic var assignmentWeighting: Float = 0.0
+    @objc dynamic var assignmentDateCreated: Date?
+    
+    @objc dynamic var assignmentStartDateInDays: Int = 0
+    @objc dynamic var assignmentDateDueInDays: Int = 0
     
     let theTasks = List<Todo>()
 

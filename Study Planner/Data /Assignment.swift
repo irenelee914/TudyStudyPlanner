@@ -23,7 +23,7 @@ class Assignment: Object {
     @objc dynamic var startDateInDays: Int = 0
     @objc dynamic var dateDueInDays: Int = 0
     
-    
+    let theTasks = List<Todo>()
     
     //var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }

@@ -11,17 +11,44 @@ import UIKit
 import RealmSwift
 import ChameleonFramework
 import SwipeCellKit
+import CircleMenu
 
-protocol CategoryCellDelegate: class {
-    func showAlertNotPinned(SelectedCategory : Category)
-    func showAlertPinned(SelectedCategory : Category)
-    func deleteCategoryCell(SelectedCategory: Category )
+
+
+
+extension UIColor {
+    static func color(_ red: Int, green: Int, blue: Int, alpha: Float) -> UIColor {
+        return UIColor(
+            red: 1.0 / 255.0 * CGFloat(red),
+            green: 1.0 / 255.0 * CGFloat(green),
+            blue: 1.0 / 255.0 * CGFloat(blue),
+            alpha: CGFloat(alpha))
+    }
 }
 
 
 
-class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeTableViewCellDelegate {
+protocol CategoryCellDelegate: class {
+    func showAlertNotPinned(SelectedCategory : Category)
+    func showAlertPinned(SelectedCategory : Category)
+    func editCategoryCell(SelectedCategory: Category )
+     func deleteCategoryCell(SelectedCategory: Category )
+}
+
+
+
+class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeTableViewCellDelegate, CircleMenuDelegate {
     
+    
+    let items: [(icon: String, color: UIColor)] = [
+        ("clear", .clear),
+        ("clear", .clear),
+        ("edit", UIColor(hexString: "#e67e22")!),
+        ("garbage", UIColor(red: 0.96, green: 0.23, blue: 0.21, alpha: 1)),
+        ("nearby-btn", .clear),
+        ("nearby-btn", .clear),
+        ("nearby-btn", .clear),
+        ]
     
     
     //Setup Variables
@@ -38,13 +65,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
     var pinnedTasksCompletedDatesArray = [Int]()
     
     
-    
-    //REALM Notification
-    var notificationToken : NotificationToken?
-    deinit{
-        notificationToken?.invalidate()
-    }
-    
+
     
     
     @IBOutlet weak var myTableView: UITableView!
@@ -52,11 +73,6 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
     override func didMoveToSuperview() {
         super.didMoveToSuperview()
         if superview != nil {
-            // Notification
-            notificationToken = realm.observe { [unowned self] note, realm in
-                //self.loadTodoTasks()
-                //self.myTableView.reloadData()
-            }
             myTableView.delegate = self
             myTableView.dataSource = self
             myTableView.register(SwipeTableViewCell.self, forCellReuseIdentifier: "DefaultCell")
@@ -157,10 +173,6 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
                                 task.pinnedTasksCompletedDates.removeSubrange(range)
                                 print("changed")
                             }
-                            
-                            
-                            //                            task.pinnedTasksCompletedDates.append("\(dateOfVCinDays )")
-                            //                            print("notchange")
                         }
                         else{
                             task.pinnedTasksCompletedDates.append(" \(dateOfVCinDays) ")
@@ -182,14 +194,8 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
         guard orientation == .right else { return nil }
         
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
-            // handle action by updating model with deletion
             self.updateModel(at: indexPath)
-            
         }
-        
-        // customize the action appearance
-        //        deleteAction.image = UIImage(named: "delete-icon")
-        
         return [deleteAction]
     }
     
@@ -210,8 +216,6 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
                 print("Error deleting Item, \(error)")
             }
         }
-        // loadTodoTasks()
-        
     }
     
     
@@ -219,17 +223,16 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
     
     @IBAction func menuButton(_ sender: UIButton) {
         
-        if todoTasks != nil {
-            do {
-                try realm.write {
-                    realm.delete(todoTasks!)
-                }
-            } catch {
-                print("Error deleting Item, \(error)")
-            }
-        }
-        
-        self.delegate?.deleteCategoryCell(SelectedCategory: self.selectedCategory!)
+//        if todoTasks != nil {
+//            do {
+//                try realm.write {
+//                    realm.delete(todoTasks!)
+//                }
+//            } catch {
+//                print("Error deleting Item, \(error)")
+//            }
+//        }
+        self.delegate?.editCategoryCell(SelectedCategory: self.selectedCategory!)
         
         //myTableView.reloadData()
         
@@ -241,6 +244,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
     @IBOutlet var closedTask3: UILabel!
     @IBOutlet var closedTask4: UILabel!
     @IBOutlet var closedTask5: UILabel!
+    @IBOutlet var buttonView: UIView!
     
     @IBOutlet var cellColour1: UIView!
     @IBOutlet var cellColour2: UILabel!
@@ -253,6 +257,7 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
         self.delegate?.showAlertNotPinned(SelectedCategory: self.selectedCategory!)
         myTableView.reloadData()
     }
+    @IBOutlet weak var backView: UIView!
     
     @IBAction func addNewPinnedTask(_ sender: UIButton) {
         
@@ -267,6 +272,68 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
         foregroundView.layer.cornerRadius = 10
         foregroundView.layer.masksToBounds = true
         super.awakeFromNib()
+        
+        self.backView.layer.borderWidth = 2
+        self.backView.layer.cornerRadius = 3
+        self.backView.layer.borderColor = UIColor.clear.cgColor
+        self.backView.layer.masksToBounds = true
+        self.layer.shadowOpacity = 0.28
+        self.layer.shadowOffset = CGSize(width: 0, height: 0)
+        self.layer.shadowRadius = 2
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.masksToBounds = false
+        
+        //menu
+        // add button
+        let button = CircleMenu(
+            frame: buttonView.frame,
+            normalIcon:"burger",
+            selectedIcon:"burger",
+            buttonsCount: 6,
+            duration: 0.5,
+            distance: 80)
+        button.backgroundColor = UIColor.clear
+        button.delegate = self
+        button.layer.cornerRadius = button.frame.size.width / 2.0
+        
+        containerView.addSubview(button)
+        
+    }
+    
+    //CIRCLE MENU DELEGATE
+    func circleMenu(_: CircleMenu, willDisplay button: UIButton, atIndex: Int) {
+        button.backgroundColor = items[atIndex].color
+        
+        button.setImage(UIImage(named: items[atIndex].icon), for: .normal)
+        
+        // set highlited image
+        let highlightedImage = UIImage(named: items[atIndex].icon)?.withRenderingMode(.alwaysTemplate)
+        button.setImage(highlightedImage, for: .highlighted)
+        button.tintColor = UIColor(red: 0, green: 0, blue: 0, alpha: 1)
+    }
+    
+    func circleMenu(_: CircleMenu, buttonWillSelected _: UIButton, atIndex: Int) {
+        print("button will selected: \(atIndex)")
+    }
+    
+    func circleMenu(_: CircleMenu, buttonDidSelected _: UIButton, atIndex: Int) {
+        print("button did selected: \(atIndex)")
+        if atIndex == 2 {
+            self.delegate?.editCategoryCell(SelectedCategory: self.selectedCategory!)
+        }
+        else if atIndex == 3 {
+            if todoTasks != nil {
+                do {
+                    try realm.write {
+                        realm.delete(todoTasks!)
+                    }
+                } catch {
+                    print("Error deleting Item, \(error)")
+                }
+            }
+            
+            self.delegate?.deleteCategoryCell(SelectedCategory: self.selectedCategory!)
+        }
     }
     
     override func animationDuration(_ itemIndex: NSInteger, type _: FoldingCell.AnimationType) -> TimeInterval {
@@ -328,19 +395,9 @@ class DemoCell: FoldingCell, UITableViewDelegate , UITableViewDataSource, SwipeT
     func loadTodoTasks(){
         if dateOfViewController != nil{
             let dateOfVCinDays = Int ((dateOfViewController?.timeIntervalSince1970)!)/(60*60*24)
-            // todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))")
-            print(dateOfVCinDays)
-            //            todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays)) OR (dateCompletedInDays != \(dateOfVCinDays) AND dateCompletedInDays != 0  ) OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )")
-            
             todoTasks = selectedCategory?.theTasks.filter("(dateCreatedInDays == \(dateOfVCinDays))  OR (todoDone == false AND dateCreatedInDays < \(dateOfVCinDays) ) OR (pinned == true )").sorted(byKeyPath: "pinned", ascending: false).sorted(byKeyPath: "dateCreatedInDays", ascending: true)
-            
-            
-            
-            
             myTableView.reloadData()
-            print("Welcome")
         }
-        
     }
     
 }
