@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OpenSans-Light.ttf">
+            <string>OpenSans-Light</string>
+        </array>
+        <array key="OpenSans-Regular.ttf">
+            <string>OpenSans-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="gTV-IL-0wX" customClass="CollectionViewCell" customModule="Study_Planner" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="167" height="183"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="167" height="183"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cuc-Rz-TLZ">
+                        <rect key="frame" x="0.0" y="0.0" width="167" height="183"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEZ-dh-EnJ">
+                                <rect key="frame" x="4" y="2" width="158" height="178"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YBj-TN-J4o" customClass="UICircularProgressRing" customModule="UICircularProgressRing">
+                                        <rect key="frame" x="23" y="47" width="113" height="131"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AVERAGE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sL3-sz-1eb">
+                                                <rect key="frame" x="26" y="27" width="60" height="26"/>
+                                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="9"/>
+                                                <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="sL3-sz-1eb" firstAttribute="centerX" secondItem="YBj-TN-J4o" secondAttribute="centerX" id="7KT-38-oWS"/>
+                                            <constraint firstItem="sL3-sz-1eb" firstAttribute="top" secondItem="YBj-TN-J4o" secondAttribute="top" constant="27" id="JB9-Tj-w59"/>
+                                            <constraint firstAttribute="bottom" secondItem="sL3-sz-1eb" secondAttribute="bottom" constant="78" id="Mnx-LC-tzu"/>
+                                            <constraint firstItem="sL3-sz-1eb" firstAttribute="leading" secondItem="YBj-TN-J4o" secondAttribute="leading" constant="26" id="lGc-z1-lQG"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="innerRingWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="outerRingColor">
+                                                <color key="value" red="0.75406885150000003" green="0.75408679249999999" blue="0.75407713649999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="outerRingWidth">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="ibRingStyle">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="fontColor">
+                                                <color key="value" red="0.94901960780000005" green="0.60392156860000001" blue="0.56078431370000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="decimalPlaces">
+                                                <integer key="value" value="1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="showFloatingPoint" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0E-33-E4F">
+                                        <rect key="frame" x="30" y="14" width="99" height="22"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22" id="58q-E0-XiE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="YBj-TN-J4o" firstAttribute="top" secondItem="E0E-33-E4F" secondAttribute="bottom" constant="11" id="7gB-pp-39z"/>
+                                    <constraint firstItem="E0E-33-E4F" firstAttribute="top" secondItem="rEZ-dh-EnJ" secondAttribute="top" constant="14" id="8gL-ct-jKq"/>
+                                    <constraint firstItem="YBj-TN-J4o" firstAttribute="bottom" secondItem="rEZ-dh-EnJ" secondAttribute="bottomMargin" constant="8" id="A3Z-oG-SmU"/>
+                                    <constraint firstItem="YBj-TN-J4o" firstAttribute="leading" secondItem="rEZ-dh-EnJ" secondAttribute="leading" constant="23" id="Wm2-Bm-9nO"/>
+                                    <constraint firstItem="E0E-33-E4F" firstAttribute="centerX" secondItem="rEZ-dh-EnJ" secondAttribute="centerX" id="vXb-V4-arj"/>
+                                    <constraint firstItem="E0E-33-E4F" firstAttribute="centerX" secondItem="YBj-TN-J4o" secondAttribute="centerX" id="y8i-7p-iot"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mark" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="je8-Bg-Luk">
+                                <rect key="frame" x="61" y="129" width="44" height="26"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Regular" family="Open Sans" pointSize="9"/>
+                                <color key="textColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="je8-Bg-Luk" firstAttribute="leading" secondItem="sL3-sz-1eb" secondAttribute="leading" constant="8" id="1Uf-2M-yr4"/>
+                            <constraint firstItem="je8-Bg-Luk" firstAttribute="top" secondItem="sL3-sz-1eb" secondAttribute="bottom" constant="27" id="2mf-28-04k"/>
+                            <constraint firstAttribute="bottom" secondItem="je8-Bg-Luk" secondAttribute="bottom" constant="28" id="4St-3w-ULL"/>
+                            <constraint firstItem="rEZ-dh-EnJ" firstAttribute="centerY" secondItem="Cuc-Rz-TLZ" secondAttribute="centerY" id="9VM-xD-isg"/>
+                            <constraint firstItem="rEZ-dh-EnJ" firstAttribute="leading" secondItem="Cuc-Rz-TLZ" secondAttribute="leading" constant="4" id="9ey-0a-6HX"/>
+                            <constraint firstItem="rEZ-dh-EnJ" firstAttribute="top" secondItem="Cuc-Rz-TLZ" secondAttribute="top" constant="2" id="V7A-PZ-lcs"/>
+                            <constraint firstItem="rEZ-dh-EnJ" firstAttribute="centerX" secondItem="Cuc-Rz-TLZ" secondAttribute="centerX" id="jg2-dx-31L"/>
+                            <constraint firstItem="je8-Bg-Luk" firstAttribute="trailing" secondItem="sL3-sz-1eb" secondAttribute="trailing" constant="-8" id="oXW-7n-X4I"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Cuc-Rz-TLZ" secondAttribute="bottom" id="7yc-Xb-I6o"/>
+                <constraint firstItem="Cuc-Rz-TLZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="byt-h1-zWH"/>
+                <constraint firstItem="Cuc-Rz-TLZ" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="wtV-ky-K0l"/>
+                <constraint firstAttribute="trailing" secondItem="Cuc-Rz-TLZ" secondAttribute="trailing" id="yY1-Id-DLa"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="205" height="196"/>
+            <connections>
+                <outlet property="backView" destination="Cuc-Rz-TLZ" id="gbW-Ec-Rys"/>
+                <outlet property="cellView" destination="rEZ-dh-EnJ" id="sTq-MQ-aIg"/>
+                <outlet property="courseName" destination="E0E-33-E4F" id="JMe-p7-G3r"/>
+                <outlet property="progressRing" destination="YBj-TN-J4o" id="LeX-Ii-Rm3"/>
+            </connections>
+            <point key="canvasLocation" x="99.5" y="123.5"/>
+        </collectionViewCell>
+    </objects>
+</document>

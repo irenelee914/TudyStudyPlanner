@@ -1,5 +1,5 @@
 //
-//  Event.swift
+//  Assignment.swift
 //  Study Planner
 //
 //  Created by Hojoon Lee on 2018-07-20.
@@ -9,9 +9,11 @@
 import Foundation
 import RealmSwift
 
-class Event: Object {
-    @objc dynamic var title: String = ""
-    @objc dynamic var done: Bool = false
-    @objc dynamic var dateCreated: Date?
+class Course: Object {
+    @objc dynamic var nameOfCourse: String = ""
+    @objc dynamic var courseAverage: Float = 0.0
+
+    let theGrades = List<Grades>()
+    
     //var parentCategory = LinkingObjects(fromType: Category.self, property: "items")
 }

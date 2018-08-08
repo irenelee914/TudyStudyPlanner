@@ -332,40 +332,14 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate, Assig
             SwiftEntryKit.display(entry: contentView, using: attributes)
             
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        //        if SelectedCategory != nil{
-        //            do {
-        //                try self.realm.write {
-        //                    self.realm.delete(SelectedCategory)
-        //                }
-        //            } catch {
-        //                print("Error deleting category, \(error)")
-        //            }
-        //        }
-        
-        //        if SelectedAssignment != nil{
-        //            do {
-        //                try self.realm.write {
-        //                    self.realm.delete(SelectedAssignment)
-        //                }
-        //            } catch {
-        //                print("Error deleting category, \(error)")
-        //            }
-        //        }
+
     }
     
     
     var categories: Results<Category>?
     var todoTasks: Results<Todo>?
     
-    var assignment:Results<Assignment>?
+    //var assignment:Results<Assignment>?
     var assignmentTodos: Results<Todo>?
     
     
@@ -600,7 +574,7 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate, Assig
         tableView.separatorStyle = .none
         tableView.reloadData()
         loadCategories()
-        loadAssignments()
+        
         
         
         
@@ -631,10 +605,7 @@ class CalendarViewController: UITableViewController, CategoryCellDelegate, Assig
         tableView.reloadData()
     }
     
-    func loadAssignments(){
-        assignment  = realm.objects(Assignment.self)
-        tableView.reloadData()
-    }
+
     
     /// --- SAVE FOR REALM --- ///
     func save(Task: Todo) {

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE77721013DF7000E1152 /* AppDelegate.swift */; };
-		136AE77C21013DF7000E1152 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE77B21013DF7000E1152 /* SecondViewController.swift */; };
 		136AE77F21013DF7000E1152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE77D21013DF7000E1152 /* Main.storyboard */; };
 		136AE78121013DF8000E1152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78021013DF8000E1152 /* Assets.xcassets */; };
 		136AE78421013DF8000E1152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78221013DF8000E1152 /* LaunchScreen.storyboard */; };
@@ -26,9 +25,45 @@
 		136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7C5210193BC000E1152 /* DemoCell.swift */; };
 		136AE7C8210193FC000E1152 /* taskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 136AE7C7210193FC000E1152 /* taskCell.xib */; };
 		136AE7CB21024A7B000E1152 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CA21024A7B000E1152 /* Category.swift */; };
-		136AE7CF2102502C000E1152 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CE2102502C000E1152 /* Assignment.swift */; };
-		136AE7D12102503F000E1152 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7D02102503F000E1152 /* Event.swift */; };
+		136AE7CF2102502C000E1152 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7CE2102502C000E1152 /* Course.swift */; };
+		136AE7D12102503F000E1152 /* Grades.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE7D02102503F000E1152 /* Grades.swift */; };
+		1375226F211A3BA5003971FA /* CourseMarksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1375226E211A3BA5003971FA /* CourseMarksVC.swift */; };
+		13752272211AA6BA003971FA /* GradesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13752270211AA6BA003971FA /* GradesCell.swift */; };
+		13752273211AA6BA003971FA /* GradesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13752271211AA6BA003971FA /* GradesCell.xib */; };
 		13AB6C65210564A6005946AD /* Todo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB6C64210564A6005946AD /* Todo.swift */; };
+		13B8F25A2118273E00684C53 /* UICollectionTEST.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8F2592118273E00684C53 /* UICollectionTEST.swift */; };
+		13B8F25D211827BB00684C53 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13B8F25B211827BB00684C53 /* CollectionViewCell.swift */; };
+		13B8F25E211827BB00684C53 /* CollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F25C211827BB00684C53 /* CollectionViewCell.xib */; };
+		13B8F280211858FC00684C53 /* Raleway-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F261211858FA00684C53 /* Raleway-BoldItalic.ttf */; };
+		13B8F281211858FC00684C53 /* Raleway-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F262211858FA00684C53 /* Raleway-MediumItalic.ttf */; };
+		13B8F282211858FC00684C53 /* Raleway-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F263211858FA00684C53 /* Raleway-ThinItalic.ttf */; };
+		13B8F283211858FC00684C53 /* Raleway-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F264211858FA00684C53 /* Raleway-ExtraLight.ttf */; };
+		13B8F284211858FC00684C53 /* Raleway-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F265211858FA00684C53 /* Raleway-Medium.ttf */; };
+		13B8F285211858FC00684C53 /* Raleway-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F266211858FA00684C53 /* Raleway-SemiBold.ttf */; };
+		13B8F286211858FC00684C53 /* Raleway-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F267211858FA00684C53 /* Raleway-ExtraBold.ttf */; };
+		13B8F287211858FC00684C53 /* Raleway-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F268211858FA00684C53 /* Raleway-ExtraBoldItalic.ttf */; };
+		13B8F288211858FC00684C53 /* Raleway-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F269211858FA00684C53 /* Raleway-Regular.ttf */; };
+		13B8F289211858FC00684C53 /* Raleway-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F26A211858FA00684C53 /* Raleway-ExtraLightItalic.ttf */; };
+		13B8F28A211858FC00684C53 /* Raleway-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F26B211858FA00684C53 /* Raleway-SemiBoldItalic.ttf */; };
+		13B8F28B211858FC00684C53 /* Raleway-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F26C211858FA00684C53 /* Raleway-Light.ttf */; };
+		13B8F28C211858FC00684C53 /* Raleway-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F26D211858FA00684C53 /* Raleway-Black.ttf */; };
+		13B8F28D211858FC00684C53 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F26E211858FA00684C53 /* OFL.txt */; };
+		13B8F28E211858FC00684C53 /* Raleway-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F26F211858FA00684C53 /* Raleway-BlackItalic.ttf */; };
+		13B8F28F211858FC00684C53 /* Raleway-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F270211858FA00684C53 /* Raleway-LightItalic.ttf */; };
+		13B8F290211858FC00684C53 /* Raleway-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F271211858FA00684C53 /* Raleway-Thin.ttf */; };
+		13B8F291211858FC00684C53 /* Raleway-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F272211858FA00684C53 /* Raleway-Italic.ttf */; };
+		13B8F292211858FC00684C53 /* Raleway-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F273211858FA00684C53 /* Raleway-Bold.ttf */; };
+		13B8F293211858FC00684C53 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F275211858FB00684C53 /* OpenSans-SemiBold.ttf */; };
+		13B8F294211858FC00684C53 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F276211858FB00684C53 /* OpenSans-Light.ttf */; };
+		13B8F295211858FC00684C53 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F277211858FB00684C53 /* OpenSans-Italic.ttf */; };
+		13B8F296211858FC00684C53 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F278211858FB00684C53 /* OpenSans-ExtraBold.ttf */; };
+		13B8F297211858FC00684C53 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F279211858FB00684C53 /* OpenSans-LightItalic.ttf */; };
+		13B8F298211858FC00684C53 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F27A211858FB00684C53 /* OpenSans-Bold.ttf */; };
+		13B8F299211858FC00684C53 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F27B211858FB00684C53 /* OpenSans-SemiBoldItalic.ttf */; };
+		13B8F29A211858FC00684C53 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F27C211858FB00684C53 /* OpenSans-ExtraBoldItalic.ttf */; };
+		13B8F29B211858FC00684C53 /* LICENSE.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F27D211858FB00684C53 /* LICENSE.txt */; };
+		13B8F29C211858FC00684C53 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F27E211858FB00684C53 /* OpenSans-Regular.ttf */; };
+		13B8F29D211858FC00684C53 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13B8F27F211858FB00684C53 /* OpenSans-BoldItalic.ttf */; };
 		13CD6B46211004BB0048E448 /* UIColor+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CD6B45211004BB0048E448 /* UIColor+Utils.swift */; };
 		13CD6B49211264560048E448 /* assignmentCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13CD6B47211264560048E448 /* assignmentCellTableViewCell.swift */; };
 		13CD6B4A211264560048E448 /* assignmentCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13CD6B48211264560048E448 /* assignmentCellTableViewCell.xib */; };
@@ -38,7 +73,6 @@
 /* Begin PBXFileReference section */
 		136AE77421013DF7000E1152 /* Study Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AE77721013DF7000E1152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		136AE77B21013DF7000E1152 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		136AE77E21013DF7000E1152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		136AE78021013DF8000E1152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		136AE78321013DF8000E1152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -67,9 +101,45 @@
 		136AE7C5210193BC000E1152 /* DemoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
 		136AE7C7210193FC000E1152 /* taskCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = taskCell.xib; sourceTree = "<group>"; };
 		136AE7CA21024A7B000E1152 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
-		136AE7CE2102502C000E1152 /* Assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
-		136AE7D02102503F000E1152 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		136AE7CE2102502C000E1152 /* Course.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		136AE7D02102503F000E1152 /* Grades.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grades.swift; sourceTree = "<group>"; };
+		1375226E211A3BA5003971FA /* CourseMarksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseMarksVC.swift; sourceTree = "<group>"; };
+		13752270211AA6BA003971FA /* GradesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradesCell.swift; sourceTree = "<group>"; };
+		13752271211AA6BA003971FA /* GradesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GradesCell.xib; sourceTree = "<group>"; };
 		13AB6C64210564A6005946AD /* Todo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Todo.swift; sourceTree = "<group>"; };
+		13B8F2592118273E00684C53 /* UICollectionTEST.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionTEST.swift; sourceTree = "<group>"; };
+		13B8F25B211827BB00684C53 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		13B8F25C211827BB00684C53 /* CollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewCell.xib; sourceTree = "<group>"; };
+		13B8F261211858FA00684C53 /* Raleway-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-BoldItalic.ttf"; sourceTree = "<group>"; };
+		13B8F262211858FA00684C53 /* Raleway-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-MediumItalic.ttf"; sourceTree = "<group>"; };
+		13B8F263211858FA00684C53 /* Raleway-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ThinItalic.ttf"; sourceTree = "<group>"; };
+		13B8F264211858FA00684C53 /* Raleway-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraLight.ttf"; sourceTree = "<group>"; };
+		13B8F265211858FA00684C53 /* Raleway-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Medium.ttf"; sourceTree = "<group>"; };
+		13B8F266211858FA00684C53 /* Raleway-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBold.ttf"; sourceTree = "<group>"; };
+		13B8F267211858FA00684C53 /* Raleway-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBold.ttf"; sourceTree = "<group>"; };
+		13B8F268211858FA00684C53 /* Raleway-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		13B8F269211858FA00684C53 /* Raleway-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Regular.ttf"; sourceTree = "<group>"; };
+		13B8F26A211858FA00684C53 /* Raleway-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		13B8F26B211858FA00684C53 /* Raleway-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		13B8F26C211858FA00684C53 /* Raleway-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Light.ttf"; sourceTree = "<group>"; };
+		13B8F26D211858FA00684C53 /* Raleway-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Black.ttf"; sourceTree = "<group>"; };
+		13B8F26E211858FA00684C53 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		13B8F26F211858FA00684C53 /* Raleway-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-BlackItalic.ttf"; sourceTree = "<group>"; };
+		13B8F270211858FA00684C53 /* Raleway-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-LightItalic.ttf"; sourceTree = "<group>"; };
+		13B8F271211858FA00684C53 /* Raleway-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Thin.ttf"; sourceTree = "<group>"; };
+		13B8F272211858FA00684C53 /* Raleway-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Italic.ttf"; sourceTree = "<group>"; };
+		13B8F273211858FA00684C53 /* Raleway-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Raleway-Bold.ttf"; sourceTree = "<group>"; };
+		13B8F275211858FB00684C53 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		13B8F276211858FB00684C53 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		13B8F277211858FB00684C53 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		13B8F278211858FB00684C53 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		13B8F279211858FB00684C53 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		13B8F27A211858FB00684C53 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		13B8F27B211858FB00684C53 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		13B8F27C211858FB00684C53 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		13B8F27D211858FB00684C53 /* LICENSE.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
+		13B8F27E211858FB00684C53 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		13B8F27F211858FB00684C53 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		13CD6B45211004BB0048E448 /* UIColor+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Utils.swift"; sourceTree = "<group>"; };
 		13CD6B47211264560048E448 /* assignmentCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignmentCellTableViewCell.swift; sourceTree = "<group>"; };
 		13CD6B48211264560048E448 /* assignmentCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = assignmentCellTableViewCell.xib; sourceTree = "<group>"; };
@@ -114,7 +184,6 @@
 				136AE7BE2101840F000E1152 /* cell */,
 				136AE7A821015693000E1152 /* Etc */,
 				136AE78021013DF8000E1152 /* Assets.xcassets */,
-				136AE77B21013DF7000E1152 /* SecondViewController.swift */,
 				136AE7C921024A51000E1152 /* Data  */,
 				136AE77721013DF7000E1152 /* AppDelegate.swift */,
 				136AE7AF210156A3000E1152 /* CalendarViewController.swift */,
@@ -122,6 +191,7 @@
 				136AE7AA210156A3000E1152 /* ViewController.swift */,
 				13CD6B45211004BB0048E448 /* UIColor+Utils.swift */,
 				136AE77D21013DF7000E1152 /* Main.storyboard */,
+				13B8F25F211827C500684C53 /* SecondVC */,
 				136AE78221013DF8000E1152 /* LaunchScreen.storyboard */,
 				136AE78521013DF8000E1152 /* Info.plist */,
 				136AE7952101420A000E1152 /* Font */,
@@ -132,6 +202,8 @@
 		136AE7952101420A000E1152 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				13B8F260211858FA00684C53 /* Raleway */,
+				13B8F274211858FB00684C53 /* Open_Sans */,
 				136AE78D210141FD000E1152 /* Product Sans Bold.ttf */,
 				136AE78F210141FE000E1152 /* Product Sans Italic.ttf */,
 				136AE79921014222000E1152 /* Lato-Black.ttf */,
@@ -177,10 +249,67 @@
 			children = (
 				136AE7CA21024A7B000E1152 /* Category.swift */,
 				13AB6C64210564A6005946AD /* Todo.swift */,
-				136AE7CE2102502C000E1152 /* Assignment.swift */,
-				136AE7D02102503F000E1152 /* Event.swift */,
+				136AE7CE2102502C000E1152 /* Course.swift */,
+				136AE7D02102503F000E1152 /* Grades.swift */,
 			);
 			path = "Data ";
+			sourceTree = "<group>";
+		};
+		13B8F25F211827C500684C53 /* SecondVC */ = {
+			isa = PBXGroup;
+			children = (
+				13B8F25C211827BB00684C53 /* CollectionViewCell.xib */,
+				13B8F2592118273E00684C53 /* UICollectionTEST.swift */,
+				13B8F25B211827BB00684C53 /* CollectionViewCell.swift */,
+				1375226E211A3BA5003971FA /* CourseMarksVC.swift */,
+				13752270211AA6BA003971FA /* GradesCell.swift */,
+				13752271211AA6BA003971FA /* GradesCell.xib */,
+			);
+			path = SecondVC;
+			sourceTree = "<group>";
+		};
+		13B8F260211858FA00684C53 /* Raleway */ = {
+			isa = PBXGroup;
+			children = (
+				13B8F261211858FA00684C53 /* Raleway-BoldItalic.ttf */,
+				13B8F262211858FA00684C53 /* Raleway-MediumItalic.ttf */,
+				13B8F263211858FA00684C53 /* Raleway-ThinItalic.ttf */,
+				13B8F264211858FA00684C53 /* Raleway-ExtraLight.ttf */,
+				13B8F265211858FA00684C53 /* Raleway-Medium.ttf */,
+				13B8F266211858FA00684C53 /* Raleway-SemiBold.ttf */,
+				13B8F267211858FA00684C53 /* Raleway-ExtraBold.ttf */,
+				13B8F268211858FA00684C53 /* Raleway-ExtraBoldItalic.ttf */,
+				13B8F269211858FA00684C53 /* Raleway-Regular.ttf */,
+				13B8F26A211858FA00684C53 /* Raleway-ExtraLightItalic.ttf */,
+				13B8F26B211858FA00684C53 /* Raleway-SemiBoldItalic.ttf */,
+				13B8F26C211858FA00684C53 /* Raleway-Light.ttf */,
+				13B8F26D211858FA00684C53 /* Raleway-Black.ttf */,
+				13B8F26E211858FA00684C53 /* OFL.txt */,
+				13B8F26F211858FA00684C53 /* Raleway-BlackItalic.ttf */,
+				13B8F270211858FA00684C53 /* Raleway-LightItalic.ttf */,
+				13B8F271211858FA00684C53 /* Raleway-Thin.ttf */,
+				13B8F272211858FA00684C53 /* Raleway-Italic.ttf */,
+				13B8F273211858FA00684C53 /* Raleway-Bold.ttf */,
+			);
+			path = Raleway;
+			sourceTree = "<group>";
+		};
+		13B8F274211858FB00684C53 /* Open_Sans */ = {
+			isa = PBXGroup;
+			children = (
+				13B8F275211858FB00684C53 /* OpenSans-SemiBold.ttf */,
+				13B8F276211858FB00684C53 /* OpenSans-Light.ttf */,
+				13B8F277211858FB00684C53 /* OpenSans-Italic.ttf */,
+				13B8F278211858FB00684C53 /* OpenSans-ExtraBold.ttf */,
+				13B8F279211858FB00684C53 /* OpenSans-LightItalic.ttf */,
+				13B8F27A211858FB00684C53 /* OpenSans-Bold.ttf */,
+				13B8F27B211858FB00684C53 /* OpenSans-SemiBoldItalic.ttf */,
+				13B8F27C211858FB00684C53 /* OpenSans-ExtraBoldItalic.ttf */,
+				13B8F27D211858FB00684C53 /* LICENSE.txt */,
+				13B8F27E211858FB00684C53 /* OpenSans-Regular.ttf */,
+				13B8F27F211858FB00684C53 /* OpenSans-BoldItalic.ttf */,
+			);
+			path = Open_Sans;
 			sourceTree = "<group>";
 		};
 		98E5EC2A2A803E818E0E3A8D /* Pods */ = {
@@ -212,6 +341,7 @@
 				136AE77121013DF7000E1152 /* Frameworks */,
 				136AE77221013DF7000E1152 /* Resources */,
 				802910D6F4CC3468627FD400 /* [CP] Embed Pods Frameworks */,
+				0E1193D2B70532B6FD76D22E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -261,20 +391,67 @@
 			buildActionMask = 2147483647;
 			files = (
 				136AE791210141FF000E1152 /* Product Sans Bold.ttf in Resources */,
+				13B8F284211858FC00684C53 /* Raleway-Medium.ttf in Resources */,
 				136AE794210141FF000E1152 /* Product Sans Regular.ttf in Resources */,
+				13B8F28A211858FC00684C53 /* Raleway-SemiBoldItalic.ttf in Resources */,
+				13B8F285211858FC00684C53 /* Raleway-SemiBold.ttf in Resources */,
+				13B8F283211858FC00684C53 /* Raleway-ExtraLight.ttf in Resources */,
+				13B8F25E211827BB00684C53 /* CollectionViewCell.xib in Resources */,
+				13B8F286211858FC00684C53 /* Raleway-ExtraBold.ttf in Resources */,
+				13B8F291211858FC00684C53 /* Raleway-Italic.ttf in Resources */,
+				13B8F297211858FC00684C53 /* OpenSans-LightItalic.ttf in Resources */,
+				13B8F281211858FC00684C53 /* Raleway-MediumItalic.ttf in Resources */,
+				13B8F29A211858FC00684C53 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				13B8F280211858FC00684C53 /* Raleway-BoldItalic.ttf in Resources */,
+				13B8F28E211858FC00684C53 /* Raleway-BlackItalic.ttf in Resources */,
+				13B8F295211858FC00684C53 /* OpenSans-Italic.ttf in Resources */,
+				13B8F298211858FC00684C53 /* OpenSans-Bold.ttf in Resources */,
 				136AE78421013DF8000E1152 /* LaunchScreen.storyboard in Resources */,
+				13B8F292211858FC00684C53 /* Raleway-Bold.ttf in Resources */,
+				13B8F29B211858FC00684C53 /* LICENSE.txt in Resources */,
+				13B8F296211858FC00684C53 /* OpenSans-ExtraBold.ttf in Resources */,
 				136AE792210141FF000E1152 /* Product Sans Bold Italic.ttf in Resources */,
+				13B8F290211858FC00684C53 /* Raleway-Thin.ttf in Resources */,
+				13B8F288211858FC00684C53 /* Raleway-Regular.ttf in Resources */,
+				13B8F289211858FC00684C53 /* Raleway-ExtraLightItalic.ttf in Resources */,
+				13B8F299211858FC00684C53 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				13CD6B4A211264560048E448 /* assignmentCellTableViewCell.xib in Resources */,
+				13B8F28D211858FC00684C53 /* OFL.txt in Resources */,
+				13B8F28B211858FC00684C53 /* Raleway-Light.ttf in Resources */,
 				136AE78121013DF8000E1152 /* Assets.xcassets in Resources */,
 				136AE7C8210193FC000E1152 /* taskCell.xib in Resources */,
+				13B8F29C211858FC00684C53 /* OpenSans-Regular.ttf in Resources */,
+				13B8F293211858FC00684C53 /* OpenSans-SemiBold.ttf in Resources */,
+				13B8F28F211858FC00684C53 /* Raleway-LightItalic.ttf in Resources */,
+				13B8F287211858FC00684C53 /* Raleway-ExtraBoldItalic.ttf in Resources */,
+				13752273211AA6BA003971FA /* GradesCell.xib in Resources */,
+				13B8F294211858FC00684C53 /* OpenSans-Light.ttf in Resources */,
 				136AE77F21013DF7000E1152 /* Main.storyboard in Resources */,
+				13B8F28C211858FC00684C53 /* Raleway-Black.ttf in Resources */,
+				13B8F282211858FC00684C53 /* Raleway-ThinItalic.ttf in Resources */,
 				136AE793210141FF000E1152 /* Product Sans Italic.ttf in Resources */,
+				13B8F29D211858FC00684C53 /* OpenSans-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0E1193D2B70532B6FD76D22E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		802910D6F4CC3468627FD400 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -282,6 +459,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Study Planner/Pods-Study Planner-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CenteredCollectionView/CenteredCollectionView.framework",
 				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/CircleMenu/CircleMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/Dropper/Dropper.framework",
@@ -297,10 +475,11 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyDrop/SwiftyDrop.framework",
 				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
-				"${BUILT_PRODUCTS_DIR}/VegaScrollFlowLayout/VegaScrollFlowLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CenteredCollectionView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CircleMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dropper.framework",
@@ -316,7 +495,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyDrop.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VegaScrollFlowLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -350,19 +529,22 @@
 			files = (
 				13CD6B46211004BB0048E448 /* UIColor+Utils.swift in Sources */,
 				136AE7B1210156A3000E1152 /* ViewController.swift in Sources */,
-				136AE77C21013DF7000E1152 /* SecondViewController.swift in Sources */,
 				136AE7B4210156A3000E1152 /* CalendarPagingCell.swift in Sources */,
 				136AE7B6210156A3000E1152 /* CalendarViewController.swift in Sources */,
 				136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */,
 				136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */,
+				13B8F25A2118273E00684C53 /* UICollectionTEST.swift in Sources */,
 				136AE78C210140D7000E1152 /* StartViewController.swift in Sources */,
 				13CD6B49211264560048E448 /* assignmentCellTableViewCell.swift in Sources */,
+				13B8F25D211827BB00684C53 /* CollectionViewCell.swift in Sources */,
 				13AB6C65210564A6005946AD /* Todo.swift in Sources */,
 				136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */,
+				1375226F211A3BA5003971FA /* CourseMarksVC.swift in Sources */,
 				136AE7B3210156A3000E1152 /* UIColor+interpolation.swift in Sources */,
-				136AE7CF2102502C000E1152 /* Assignment.swift in Sources */,
+				136AE7CF2102502C000E1152 /* Course.swift in Sources */,
+				13752272211AA6BA003971FA /* GradesCell.swift in Sources */,
 				136AE7B2210156A3000E1152 /* DateFormatters.swift in Sources */,
-				136AE7D12102503F000E1152 /* Event.swift in Sources */,
+				136AE7D12102503F000E1152 /* Grades.swift in Sources */,
 				136AE7CB21024A7B000E1152 /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
