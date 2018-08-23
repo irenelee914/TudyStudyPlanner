@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EB9FD83B626B8D87F40FC1830C377507"
+               BlueprintIdentifier = "2297FAAEB2634AB54425210996F4D885"
                BuildableName = "ScrollableGraphView.framework"
                BlueprintName = "ScrollableGraphView"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EB9FD83B626B8D87F40FC1830C377507"
+            BlueprintIdentifier = "2297FAAEB2634AB54425210996F4D885"
             BuildableName = "ScrollableGraphView.framework"
             BlueprintName = "ScrollableGraphView"
             ReferencedContainer = "container:Pods.xcodeproj">

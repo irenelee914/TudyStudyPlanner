@@ -176,13 +176,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="2Xn-zd-f1C" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
-                                <rect key="frame" x="0.0" y="214" width="375" height="216"/>
-                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4NH-de-1eL">
                                 <rect key="frame" x="0.0" y="451" width="375" height="167"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="167" id="JBc-BM-QAU"/>
+                                    <constraint firstAttribute="height" constant="167" id="OlF-Ra-KcQ"/>
                                 </constraints>
                                 <collectionViewLayout key="collectionViewLayout" id="Cfw-UW-oOT" customClass="CenteredCollectionViewFlowLayout" customModule="CenteredCollectionView"/>
                                 <cells>
@@ -196,9 +193,8 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPz-yA-3KP">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPz-yA-3KP">
                                 <rect key="frame" x="16" y="20" width="24" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="back"/>
                                 <connections>
                                     <action selector="goBack:" destination="pfg-qr-AU6" eventType="touchUpInside" id="R2W-Ek-5N8"/>
@@ -216,21 +212,26 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Xn-zd-f1C" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
+                                <rect key="frame" x="0.0" y="184" width="375" height="247"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="8vJ-cu-8l4" firstAttribute="top" secondItem="LMn-Nr-2bz" secondAttribute="top" constant="37" id="BW6-ky-mtL"/>
-                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="top" secondItem="8vJ-cu-8l4" secondAttribute="bottom" constant="38" id="J9o-i5-Qrn"/>
-                            <constraint firstItem="4NH-de-1eL" firstAttribute="top" secondItem="2Xn-zd-f1C" secondAttribute="bottom" constant="21" id="Jct-5k-CCl"/>
-                            <constraint firstItem="8vJ-cu-8l4" firstAttribute="leading" secondItem="LMn-Nr-2bz" secondAttribute="leading" constant="24" id="fhO-0w-Qk0"/>
-                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="leading" secondItem="4NH-de-1eL" secondAttribute="leading" id="hRM-Fm-n0U"/>
-                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="leading" secondItem="oqT-3v-5lZ" secondAttribute="leading" id="ieq-0X-bd9"/>
-                            <constraint firstItem="4NH-de-1eL" firstAttribute="bottom" secondItem="LMn-Nr-2bz" secondAttribute="bottom" id="jTl-cy-rDz"/>
-                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="trailing" secondItem="4NH-de-1eL" secondAttribute="trailing" id="lGl-ME-Q2g"/>
-                            <constraint firstItem="teq-cf-OKn" firstAttribute="leading" secondItem="LMn-Nr-2bz" secondAttribute="leading" constant="26" id="lsy-eK-Jso"/>
-                            <constraint firstItem="teq-cf-OKn" firstAttribute="top" secondItem="LMn-Nr-2bz" secondAttribute="top" constant="15" id="vPk-Yh-diL"/>
-                            <constraint firstAttribute="trailing" secondItem="2Xn-zd-f1C" secondAttribute="trailing" id="wXw-Ea-Bcq"/>
+                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="leading" secondItem="oqT-3v-5lZ" secondAttribute="leading" id="5ZW-sp-4gT"/>
+                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="trailing" secondItem="4NH-de-1eL" secondAttribute="trailing" id="FnH-oq-k5X"/>
+                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="leading" secondItem="4NH-de-1eL" secondAttribute="leading" id="Jd5-1p-BDv"/>
+                            <constraint firstItem="8vJ-cu-8l4" firstAttribute="top" secondItem="LMn-Nr-2bz" secondAttribute="top" constant="37" id="KEU-jj-C95"/>
+                            <constraint firstItem="2Xn-zd-f1C" firstAttribute="top" secondItem="8vJ-cu-8l4" secondAttribute="bottom" constant="8" symbolic="YES" id="LV4-lg-moZ"/>
+                            <constraint firstItem="8vJ-cu-8l4" firstAttribute="leading" secondItem="LMn-Nr-2bz" secondAttribute="leading" constant="24" id="Ort-YT-oGM"/>
+                            <constraint firstItem="4NH-de-1eL" firstAttribute="bottom" secondItem="LMn-Nr-2bz" secondAttribute="bottom" id="VWG-m8-Upv"/>
+                            <constraint firstItem="BPz-yA-3KP" firstAttribute="leading" secondItem="oqT-3v-5lZ" secondAttribute="leadingMargin" id="hV9-sV-Pq7"/>
+                            <constraint firstItem="4NH-de-1eL" firstAttribute="top" secondItem="2Xn-zd-f1C" secondAttribute="bottom" constant="20" id="k3O-3N-ibB"/>
+                            <constraint firstItem="teq-cf-OKn" firstAttribute="top" secondItem="BPz-yA-3KP" secondAttribute="bottom" constant="35" id="lq7-2V-6sk"/>
+                            <constraint firstItem="teq-cf-OKn" firstAttribute="leading" secondItem="LMn-Nr-2bz" secondAttribute="leading" constant="26" id="qin-yM-zYV"/>
+                            <constraint firstAttribute="trailing" secondItem="2Xn-zd-f1C" secondAttribute="trailing" id="sAD-1I-e4T"/>
+                            <constraint firstItem="teq-cf-OKn" firstAttribute="top" secondItem="LMn-Nr-2bz" secondAttribute="top" constant="15" id="t3v-PP-BCW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LMn-Nr-2bz"/>
                     </view>
@@ -243,9 +244,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="graphView" destination="2Xn-zd-f1C" id="HLB-lr-AiE"/>
                         <outlet property="markLabel" destination="8vJ-cu-8l4" id="wGi-81-3xL"/>
                         <outlet property="myCollectionView" destination="4NH-de-1eL" id="E9E-b6-TyY"/>
+                        <outlet property="myGraphView" destination="2Xn-zd-f1C" id="emi-3E-pPj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvk-tg-SPH" userLabel="First Responder" sceneMemberID="firstResponder"/>

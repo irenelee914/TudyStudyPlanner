@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "C3ED68AB74F164CAD3D2367CB1EAF151"
+               BlueprintIdentifier = "135D8D2547B4208AD264AC21E4F3565D"
                BuildableName = "UICircularProgressRing.framework"
                BlueprintName = "UICircularProgressRing"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "C3ED68AB74F164CAD3D2367CB1EAF151"
+            BlueprintIdentifier = "135D8D2547B4208AD264AC21E4F3565D"
             BuildableName = "UICircularProgressRing.framework"
             BlueprintName = "UICircularProgressRing"
             ReferencedContainer = "container:Pods.xcodeproj">

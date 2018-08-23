@@ -13,7 +13,9 @@ import RealmSwift
 import SwiftEntryKit
 import SwiftyDrop
 
-class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDelegate, UICollectionViewDelegate {
+class CourseMarksVC: UIViewController,ScrollableGraphViewDataSource, UICollectionViewDataSource,GradesCellDelegate, UICollectionViewDelegate {
+
+    
     
     let realm = try! Realm()
     var grades : Results<Grades>?
@@ -25,7 +27,8 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
     
     @IBOutlet weak var markLabel: UILabel!
     @IBOutlet weak var myCollectionView: UICollectionView!
-    @IBOutlet weak var graphView: ScrollableGraphView!
+
+    @IBOutlet weak var myGraphView: ScrollableGraphView!
     @IBAction func addNewGrades(_ sender: UIBarButtonItem) {
         var textField : [EKProperty.TextFieldContent] = []
         let title = EKProperty.LabelContent(text: "Add new Grade", style: .init(font: .systemFont(ofSize: 16), color: EKColor.Gray.a800, alignment: .center, numberOfLines: 1))
@@ -66,12 +69,14 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
                         newGrade.weighting = temp2!
                         self.selectedCourse?.theGrades.append(newGrade)
                         self.selectedCourse?.courseAverage = self.averageCalc()
-                        self.loadGrades()
+                     
                         SwiftEntryKit.dismiss()
+                        
                     }
                 } catch {
                     print("Error saving new items, \(error)")
                 }
+                self.loadGrades()
             }
             
         }
@@ -102,6 +107,9 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
             let contentView = EKFormMessageView(with: title, textFieldsContent: textField, buttonContent: button)
             SwiftEntryKit.display(entry: contentView, using: attributes)
         }
+        
+        
+      
     }
     
     
@@ -143,7 +151,9 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
         myCollectionView?.backgroundColor = UIColor.init(hexString: "#f6f6f7", withAlpha: 1)
         
         //load
+        
         loadGrades()
+        setupGraph()
         
     }
     
@@ -184,6 +194,8 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
             }
         
         loadGrades()
+        //myGraphView.reload()
+     
     }
     
     //MARK: Load Grades From Realm
@@ -191,8 +203,8 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
         grades = selectedCourse?.theGrades.filter("mark == 0 || mark != 0")
         let average = selectedCourse?.courseAverage ?? 0
         self.markLabel.text = "\(average)%"
-        
         myCollectionView.reloadData()
+        
     }
     
     //MARK: Calculate Average
@@ -213,6 +225,79 @@ class CourseMarksVC: UIViewController, UICollectionViewDataSource,GradesCellDele
         }
         return totalSum / totalWeight
 
+    }
+    
+    func setupGraph(){
+        //let graphView1 = ScrollableGraphView(frame: graphView.frame, dataSource: self)
+        myGraphView.dataSource = self
+        // Setup the line plot.
+        let linePlot = LinePlot(identifier: "darkLine")
+        
+        linePlot.lineWidth = 1
+  
+        linePlot.lineColor = UIColor.init(hexString: "#777777")!
+        linePlot.lineStyle = ScrollableGraphViewLineStyle.smooth
+        
+        linePlot.shouldFill = true
+        linePlot.fillType = ScrollableGraphViewFillType.gradient
+        linePlot.fillGradientType = ScrollableGraphViewGradientType.linear
+        linePlot.fillGradientStartColor = UIColor.white
+        linePlot.fillGradientEndColor = UIColor.white
+        
+        linePlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+        
+        let dotPlot = DotPlot(identifier: "darkLineDot") // Add dots as well.
+        dotPlot.dataPointSize = 2
+        dotPlot.dataPointFillColor = UIColor.flatPlum
+        
+        dotPlot.adaptAnimationType = ScrollableGraphViewAnimationType.elastic
+        
+        // Setup the reference lines.
+        let referenceLines = ReferenceLines()
+        
+        referenceLines.referenceLineLabelFont = UIFont.boldSystemFont(ofSize: 8)
+        referenceLines.referenceLineColor = UIColor.black
+        referenceLines.referenceLineLabelColor = UIColor.black
+        
+        referenceLines.positionType = .absolute
+        // Reference lines will be shown at these values on the y-axis.
+        referenceLines.absolutePositions = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+        referenceLines.includeMinMax = false
+        
+        referenceLines.dataPointLabelColor = UIColor.flatPlum
+        
+        // Setup the graph
+        myGraphView.backgroundFillColor = UIColor.white
+        myGraphView.dataPointSpacing = 80
+        
+        myGraphView.shouldAnimateOnStartup = true
+        myGraphView.shouldAdaptRange = true
+        myGraphView.shouldRangeAlwaysStartAtZero = true
+        
+        myGraphView.rangeMax = 50
+        
+        // Add everything to the graph.
+        myGraphView.addReferenceLines(referenceLines: referenceLines)
+        myGraphView.addPlot(plot: linePlot)
+        myGraphView.addPlot(plot: dotPlot)
+        
+        //view.addSubview(graphView1)
+    }
+    
+    func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
+         let count = grades?.count ?? 0
+            if let mark = grades?[pointIndex] {
+                return Double(mark.mark)
+            }
+        return 0
+    }
+    
+    func label(atIndex pointIndex: Int) -> String {
+        return "\(pointIndex + 1)"
+    }
+    
+    func numberOfPoints() -> Int {
+        return (grades?.count) ?? 0
     }
     
     

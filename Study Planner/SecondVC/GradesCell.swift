@@ -21,7 +21,7 @@ class GradesCell: UICollectionViewCell {
     @IBOutlet weak var gradeName: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBAction func deleteMark(_ sender: UIButton) {
-        print("HI")
+    
         self.delegate?.deleteMark(selectedGrade : selectedGrade!)
     }
     @IBOutlet weak var cellView: UIView!

@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.7.2)
   - CenteredCollectionView (2.0.0)
   - ChameleonFramework/Default (2.1.0)
   - ChameleonFramework/Swift (2.1.0):
@@ -22,10 +23,12 @@ PODS:
   - SwiftEntryKit (0.5.3):
     - QuickLayout (= 2.0.2)
   - SwiftyDrop (4.1.0)
+  - SwiftyJSON (4.1.0)
   - SwipeCellKit (2.4.3)
   - UICircularProgressRing (3.0.0)
 
 DEPENDENCIES:
+  - Alamofire
   - CenteredCollectionView
   - ChameleonFramework/Swift (from `https://github.com/ViccAlexander/Chameleon.git`, branch `wip/swift4`)
   - CircleMenu
@@ -37,11 +40,13 @@ DEPENDENCIES:
   - ScrollableGraphView
   - SwiftEntryKit
   - SwiftyDrop
+  - SwiftyJSON
   - SwipeCellKit
   - UICircularProgressRing
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Alamofire
     - CenteredCollectionView
     - CircleMenu
     - Dropper
@@ -56,6 +61,7 @@ SPEC REPOS:
     - SnapKit
     - SwiftEntryKit
     - SwiftyDrop
+    - SwiftyJSON
     - SwipeCellKit
     - UICircularProgressRing
 
@@ -70,6 +76,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/ViccAlexander/Chameleon.git
 
 SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   CenteredCollectionView: 6548b515645aea6ea89618f4b5ca090191dc8628
   ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   CircleMenu: 743ac815475e8e40e8848d2954fa7f7263d9f78d
@@ -85,9 +92,10 @@ SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SwiftEntryKit: ce6537f52b140f245327cb12545f2ec2ac6bd716
   SwiftyDrop: bdcaa52e6127790f2e382df4fd56c32da8b8cc57
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
   SwipeCellKit: cee9906e6d3a36e22ad1a852fba7f8fa0839d113
   UICircularProgressRing: 3b472692ffca84060fd444ea5c0b387161067c54
 
-PODFILE CHECKSUM: 7abd1c7808d640bd52b79f175c3232be4f3e7f01
+PODFILE CHECKSUM: c4585035d59f0adb8738a44b834ef605217d0022
 
 COCOAPODS: 1.5.3

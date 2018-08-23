@@ -20,5 +20,7 @@ pod 'ScrollableGraphView'
 pod 'Dropper'
 pod 'CircleMenu'
 pod 'UICircularProgressRing'
+pod 'SwiftyJSON'
+pod 'Alamofire'
 
 end
