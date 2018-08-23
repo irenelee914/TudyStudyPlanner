@@ -11,7 +11,6 @@
 		136AE77F21013DF7000E1152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE77D21013DF7000E1152 /* Main.storyboard */; };
 		136AE78121013DF8000E1152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78021013DF8000E1152 /* Assets.xcassets */; };
 		136AE78421013DF8000E1152 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78221013DF8000E1152 /* LaunchScreen.storyboard */; };
-		136AE78C210140D7000E1152 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE78B210140D7000E1152 /* StartViewController.swift */; };
 		136AE791210141FF000E1152 /* Product Sans Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78D210141FD000E1152 /* Product Sans Bold.ttf */; };
 		136AE792210141FF000E1152 /* Product Sans Bold Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78E210141FE000E1152 /* Product Sans Bold Italic.ttf */; };
 		136AE793210141FF000E1152 /* Product Sans Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78F210141FE000E1152 /* Product Sans Italic.ttf */; };
@@ -77,7 +76,6 @@
 		136AE78021013DF8000E1152 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		136AE78321013DF8000E1152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		136AE78521013DF8000E1152 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		136AE78B210140D7000E1152 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		136AE78D210141FD000E1152 /* Product Sans Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Bold.ttf"; sourceTree = "<group>"; };
 		136AE78E210141FE000E1152 /* Product Sans Bold Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Bold Italic.ttf"; sourceTree = "<group>"; };
 		136AE78F210141FE000E1152 /* Product Sans Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Product Sans Italic.ttf"; sourceTree = "<group>"; };
@@ -187,7 +185,6 @@
 				136AE7C921024A51000E1152 /* Data  */,
 				136AE77721013DF7000E1152 /* AppDelegate.swift */,
 				136AE7AF210156A3000E1152 /* CalendarViewController.swift */,
-				136AE78B210140D7000E1152 /* StartViewController.swift */,
 				136AE7AA210156A3000E1152 /* ViewController.swift */,
 				13CD6B45211004BB0048E448 /* UIColor+Utils.swift */,
 				136AE77D21013DF7000E1152 /* Main.storyboard */,
@@ -534,7 +531,6 @@
 				136AE7C6210193BC000E1152 /* DemoCell.swift in Sources */,
 				136AE7B0210156A3000E1152 /* UIView+constraints.swift in Sources */,
 				13B8F25A2118273E00684C53 /* UICollectionTEST.swift in Sources */,
-				136AE78C210140D7000E1152 /* StartViewController.swift in Sources */,
 				13CD6B49211264560048E448 /* assignmentCellTableViewCell.swift in Sources */,
 				13B8F25D211827BB00684C53 /* CollectionViewCell.swift in Sources */,
 				13AB6C65210564A6005946AD /* Todo.swift in Sources */,

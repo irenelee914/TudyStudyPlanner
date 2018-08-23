@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="k8V-lY-D3r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -12,14 +12,8 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lato-Regular.ttf">
-            <string>Lato-Regular</string>
-        </array>
         <array key="OpenSans-Light.ttf">
             <string>OpenSans-Light</string>
-        </array>
-        <array key="Product Sans Regular.ttf">
-            <string>ProductSans-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -86,7 +80,6 @@
         <!--Item-->
         <scene sceneID="bfI-Xg-JAf">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="E2E-nP-2rv" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="RIL-Hv-ko7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="2js-wn-j6Z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MRZ-kD-2Zh">
@@ -104,6 +97,7 @@
                         <segue destination="S8D-QY-3wn" kind="relationship" relationship="rootViewController" id="WrD-HA-SXX"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="E2E-nP-2rv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="233" y="1045"/>
         </scene>
@@ -183,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="2Xn-zd-f1C" customClass="ScrollableGraphView" customModule="ScrollableGraphView">
-                                <rect key="frame" x="0.0" y="203.5" width="375" height="226.5"/>
+                                <rect key="frame" x="0.0" y="214" width="375" height="216"/>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="4NH-de-1eL">
                                 <rect key="frame" x="0.0" y="451" width="375" height="167"/>
@@ -211,13 +205,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Average" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teq-cf-OKn">
-                                <rect key="frame" x="26" y="79" width="117" height="26"/>
+                                <rect key="frame" x="26" y="79" width="114" height="30"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="22"/>
                                 <color key="textColor" red="0.26051741839999998" green="0.2605243921" blue="0.260520637" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100.78 %" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8vJ-cu-8l4">
-                                <rect key="frame" x="24" y="101" width="238.5" height="64.5"/>
+                                <rect key="frame" x="24" y="101" width="229" height="75"/>
                                 <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="55"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -244,12 +238,12 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Jaq-Ke-1ln">
                             <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="addNewGrade:" destination="pfg-qr-AU6" id="jIl-Q8-Gsi"/>
+                                <action selector="addNewGrades:" destination="pfg-qr-AU6" id="HkL-nz-Ozf"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="graphView" destination="2Xn-zd-f1C" id="loZ-Gj-cbB"/>
+                        <outlet property="graphView" destination="2Xn-zd-f1C" id="HLB-lr-AiE"/>
                         <outlet property="markLabel" destination="8vJ-cu-8l4" id="wGi-81-3xL"/>
                         <outlet property="myCollectionView" destination="4NH-de-1eL" id="E9E-b6-TyY"/>
                     </connections>
@@ -257,73 +251,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fvk-tg-SPH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1776.8" y="1044.8275862068967"/>
-        </scene>
-        <!--Start View Controller-->
-        <scene sceneID="6x5-Er-TUg">
-            <objects>
-                <viewController id="k8V-lY-D3r" customClass="StartViewController" customModule="Study_Planner" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="ukX-cW-XPe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tudy is your personal Study Planner. It keeps track of your assignments, exams, tasks, goals, grades, and schedule. " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hj-Il-Ov8">
-                                <rect key="frame" x="40" y="448" width="293" height="73"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="73" id="5Ea-CN-QVW"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0mZ-uH-tvb">
-                                <rect key="frame" x="16" y="41" width="343" height="342"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Tudy !" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="so3-1z-5aH">
-                                <rect key="frame" x="96" y="425" width="182" height="28"/>
-                                <fontDescription key="fontDescription" name="ProductSans-Regular" family="Product Sans" pointSize="23"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A4U-oe-eKC">
-                                <rect key="frame" x="130" y="555" width="113" height="30"/>
-                                <color key="backgroundColor" red="0.5607843137254902" green="0.58039215686274503" blue="0.98431372549019602" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Start">
-                                            <attributes>
-                                                <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <font key="NSFont" metaFont="system" size="15"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
-                                <connections>
-                                    <segue destination="49e-Tb-3d3" kind="show" identifier="goToDefault" id="Bqu-m0-8uy"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="3hj-Il-Ov8" firstAttribute="centerX" secondItem="A4U-oe-eKC" secondAttribute="centerX" id="1Qu-6x-czU"/>
-                            <constraint firstItem="0mZ-uH-tvb" firstAttribute="centerX" secondItem="so3-1z-5aH" secondAttribute="centerX" id="1cK-nt-rhb"/>
-                            <constraint firstItem="3hj-Il-Ov8" firstAttribute="top" secondItem="0mZ-uH-tvb" secondAttribute="bottom" constant="65" id="7Om-EM-Ews"/>
-                            <constraint firstItem="so3-1z-5aH" firstAttribute="top" secondItem="0mZ-uH-tvb" secondAttribute="bottom" constant="42" id="BNG-FG-FVD"/>
-                            <constraint firstItem="3hj-Il-Ov8" firstAttribute="leading" secondItem="vda-jA-MiO" secondAttribute="leading" constant="40" id="FWc-en-cNg"/>
-                            <constraint firstItem="so3-1z-5aH" firstAttribute="centerX" secondItem="3hj-Il-Ov8" secondAttribute="centerX" id="IvR-hi-uMJ"/>
-                            <constraint firstItem="0mZ-uH-tvb" firstAttribute="trailing" secondItem="ukX-cW-XPe" secondAttribute="trailingMargin" id="cUx-TM-VGE"/>
-                            <constraint firstItem="0mZ-uH-tvb" firstAttribute="top" secondItem="vda-jA-MiO" secondAttribute="top" constant="21" id="cWy-TX-tWM"/>
-                            <constraint firstItem="vda-jA-MiO" firstAttribute="bottom" secondItem="A4U-oe-eKC" secondAttribute="bottom" constant="82" id="jlF-Dc-aQq"/>
-                            <constraint firstItem="0mZ-uH-tvb" firstAttribute="leading" secondItem="ukX-cW-XPe" secondAttribute="leadingMargin" id="jlI-D4-eHs"/>
-                            <constraint firstItem="A4U-oe-eKC" firstAttribute="leading" secondItem="vda-jA-MiO" secondAttribute="leading" constant="130" id="qyk-mi-lgi"/>
-                            <constraint firstItem="A4U-oe-eKC" firstAttribute="top" secondItem="3hj-Il-Ov8" secondAttribute="bottom" constant="34" id="vuU-7Z-wYe"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="vda-jA-MiO"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yF5-Pi-cu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-804" y="-0.44977511244377816"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">

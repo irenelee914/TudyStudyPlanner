@@ -8,12 +8,21 @@
 
 import UIKit
 
-class GradesCell: UICollectionViewCell {
+protocol GradesCellDelegate : class{
+    func deleteMark(selectedGrade : Grades)
+}
 
+
+class GradesCell: UICollectionViewCell {
+    
+    var selectedGrade : Grades?
+    weak var delegate: GradesCellDelegate?
     @IBOutlet weak var cellIndex: UILabel!
     @IBOutlet weak var gradeName: UILabel!
     @IBOutlet weak var grade: UILabel!
     @IBAction func deleteMark(_ sender: UIButton) {
+        print("HI")
+        self.delegate?.deleteMark(selectedGrade : selectedGrade!)
     }
     @IBOutlet weak var cellView: UIView!
     @IBOutlet weak var backView: UIView!

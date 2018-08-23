@@ -94,7 +94,16 @@ class UICollectionTEST: UIViewController, UICollectionViewDelegate,UICollectionV
        // self.navigationController?.navigationBar.barTintColor = UIColor.clear
     }
     
+    /// --- REALM Notification. Update Tableview once new category is added --- ///
+    var notificationToken : NotificationToken?
+    deinit{
+        notificationToken?.invalidate()
+    }
+    
     override func viewDidLoad() {
+        notificationToken = realm.observe { [unowned self] note, realm in
+            self.myCollectionView.reloadData()
+        }
         let backImage = UIImage(named: "backf")
         
         self.navigationController?.navigationBar.backIndicatorImage = backImage
