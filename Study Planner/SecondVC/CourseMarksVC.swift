@@ -69,6 +69,8 @@ class CourseMarksVC: UIViewController,ScrollableGraphViewDataSource, UICollectio
                         newGrade.weighting = temp2!
                         self.selectedCourse?.theGrades.append(newGrade)
                         self.selectedCourse?.courseAverage = self.averageCalc()
+                        
+                        
                      
                         SwiftEntryKit.dismiss()
                         
@@ -77,6 +79,7 @@ class CourseMarksVC: UIViewController,ScrollableGraphViewDataSource, UICollectio
                     print("Error saving new items, \(error)")
                 }
                 self.loadGrades()
+                //self.setupGraph()
             }
             
         }
@@ -285,7 +288,6 @@ class CourseMarksVC: UIViewController,ScrollableGraphViewDataSource, UICollectio
     }
     
     func value(forPlot plot: Plot, atIndex pointIndex: Int) -> Double {
-         let count = grades?.count ?? 0
             if let mark = grades?[pointIndex] {
                 return Double(mark.mark)
             }

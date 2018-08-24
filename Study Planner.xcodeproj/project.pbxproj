@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1340BFF72130BF1700901322 /* QuotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1340BFF62130BF1700901322 /* QuotesViewController.swift */; };
 		136AE77821013DF7000E1152 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136AE77721013DF7000E1152 /* AppDelegate.swift */; };
 		136AE77F21013DF7000E1152 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136AE77D21013DF7000E1152 /* Main.storyboard */; };
 		136AE78121013DF8000E1152 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 136AE78021013DF8000E1152 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1340BFF62130BF1700901322 /* QuotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesViewController.swift; sourceTree = "<group>"; };
 		136AE77421013DF7000E1152 /* Study Planner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Study Planner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136AE77721013DF7000E1152 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136AE77E21013DF7000E1152 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				136AE7AA210156A3000E1152 /* ViewController.swift */,
 				13CD6B45211004BB0048E448 /* UIColor+Utils.swift */,
 				136AE77D21013DF7000E1152 /* Main.storyboard */,
+				1340BFF62130BF1700901322 /* QuotesViewController.swift */,
 				13B8F25F211827C500684C53 /* SecondVC */,
 				136AE78221013DF8000E1152 /* LaunchScreen.storyboard */,
 				136AE78521013DF8000E1152 /* Info.plist */,
@@ -449,6 +452,7 @@
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Parchment/Parchment.framework",
+				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
 				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
@@ -471,6 +475,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parchment.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
@@ -528,6 +533,7 @@
 				136AE7CF2102502C000E1152 /* Course.swift in Sources */,
 				13752272211AA6BA003971FA /* GradesCell.swift in Sources */,
 				136AE7B2210156A3000E1152 /* DateFormatters.swift in Sources */,
+				1340BFF72130BF1700901322 /* QuotesViewController.swift in Sources */,
 				136AE7D12102503F000E1152 /* Grades.swift in Sources */,
 				136AE7CB21024A7B000E1152 /* Category.swift in Sources */,
 			);

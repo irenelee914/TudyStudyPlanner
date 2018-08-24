@@ -266,11 +266,45 @@
                     <connections>
                         <segue destination="NaE-Jy-rRq" kind="relationship" relationship="viewControllers" id="nwQ-oN-TtJ"/>
                         <segue destination="RIL-Hv-ko7" kind="relationship" relationship="viewControllers" id="lyi-ub-TG8"/>
+                        <segue destination="Lfj-Jb-xzb" kind="relationship" relationship="viewControllers" id="rc7-ze-GNG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="0.0" y="0.0"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="w3m-KG-nCY">
+            <objects>
+                <viewController id="Lfj-Jb-xzb" customClass="QuotesViewController" customModule="Study_Planner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KDF-GH-LFr">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="13" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="otR-bH-UAH">
+                                <rect key="frame" x="49" y="180" width="277" height="279"/>
+                                <fontDescription key="fontDescription" name="Baskerville" family="Baskerville" pointSize="30"/>
+                                <color key="textColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="otR-bH-UAH" firstAttribute="centerX" secondItem="KDF-GH-LFr" secondAttribute="centerX" id="Vc4-xV-M3G"/>
+                            <constraint firstItem="Eia-is-Cni" firstAttribute="bottom" secondItem="otR-bH-UAH" secondAttribute="bottom" constant="159" id="gOc-Sd-ZdC"/>
+                            <constraint firstItem="otR-bH-UAH" firstAttribute="top" secondItem="Eia-is-Cni" secondAttribute="top" constant="160" id="uwk-c5-Evw"/>
+                            <constraint firstItem="otR-bH-UAH" firstAttribute="leading" secondItem="Eia-is-Cni" secondAttribute="leading" constant="49" id="y7e-pI-qmy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Eia-is-Cni"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="OfG-yE-J4O"/>
+                    <connections>
+                        <outlet property="quote" destination="otR-bH-UAH" id="dUK-Pt-WPO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YXL-OE-A60" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="840.79999999999995" y="362.96851574212894"/>
         </scene>
         <!--Item-->
         <scene sceneID="UbY-Gh-HKP">

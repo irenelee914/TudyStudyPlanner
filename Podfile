@@ -22,5 +22,6 @@ pod 'CircleMenu'
 pod 'UICircularProgressRing'
 pod 'SwiftyJSON'
 pod 'Alamofire'
+pod "Pastel"
 
 end
